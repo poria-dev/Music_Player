@@ -1,1 +1,1 @@
-https://poria-dev.github.io/Music_Player/src
+https://poria-dev.github.io/Music_Player/
