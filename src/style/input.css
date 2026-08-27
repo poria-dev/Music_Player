@@ -1,42 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
-
-@font-face {
-    font-family: "font1";
-    src: url(../Asset/font/Maktab/MaktabRita-Regular.eot);
-}
-
-@font-face {
-    font-family: "font2";
-    src: url(../Asset/font/Far_DastNevis/Far_DastNevis.otf);
-}
-
-@font-face {
-    font-family: "font3";
-    src: url(../Asset/font/Far_Traffic/Far_Traffic.ttf);
-}
-
-@font-face {
-    font-family: "font4";
-    src: url(../Asset/font/Mj_Farsi/Mj_Farsi\ Simple\ Normal_0.ttf);
-}
-
-
-
-
-
-
-
-
-
-
-/* page */
 
 
 @theme {
 
-    --font-font1: "font1"
-    --font-font2:"font2"
-    --font-font3:"font3"
-    --font-font4:"font4"
+    --font-font1: "Plus Jakarta Sans", sans-serif;
+
+    --font-font2: "Plus Jakarta Sans", sans-serif;
+
+    --font-font3: "Space Grotesk", sans-serif;
+
+    --font-font4: "Plus Jakarta Sans", sans-serif;
+
 }
