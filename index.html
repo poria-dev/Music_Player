@@ -6,7 +6,6 @@
 
 <head>
 
-```
 <meta charset="UTF-8">
 
 <meta
@@ -100,7 +99,6 @@
         }
     }
 </style>
-```
 
 </head>
 
@@ -108,7 +106,6 @@
 
 <section class="w-full relative min-h-screen flex flex-wrap *:flex-wrap">
 
-```
 <!-- /////////////////// -->
 
 
@@ -624,22 +621,408 @@
     <!-- / slider_Sounds / -->
 
 
-    <div class="mode_Vibe flex flex-wrap px-2">
+<div class="mode_Vibe flex flex-wrap px-2">
 
 
         <div class="title1 pl-2 font-[font4] font-bold capitalize text-xl xl:text-2xl pr-5 py-5 w-full text-white">
 
-            Made for you
+            Categories
 
         </div>
 
 
-        <div class="cardmode *:cursor-pointer flex justify-evenly flex-nowrap gap-5 overflow-x-auto w-full py-5 scrollbar-none">
+ <div class="cardmode *:cursor-pointer flex justify-evenly flex-nowrap gap-5 overflow-x-auto w-full py-5 scrollbar-none">
 
-        </div>
 
+    <div data-status="100" class="w-[150px] h-[140px] rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
+
+    <svg
+    width="70"
+    height="70"
+    viewBox="0 0 70 70"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <linearGradient id="popGradient" x1="15" y1="10" x2="55" y2="60">
+            <stop stop-color="#35CFFF"/>
+            <stop offset="1" stop-color="#FF3D9A"/>
+        </linearGradient>
+
+        <filter id="popGlow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <g
+        stroke="url(#popGradient)"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#popGlow)"
+    >
+        <path d="M14 35C14 22.85 23.85 13 36 13C48.15 13 58 22.85 58 35"/>
+
+        <path d="M20 35V29C20 25.13 23.13 22 27 22"/>
+        <path d="M52 35V29C52 25.13 48.87 22 45 22"/>
+
+        <rect x="15" y="34" width="10" height="18" rx="5"/>
+        <rect x="47" y="34" width="10" height="18" rx="5"/>
+
+        <path d="M25 43H28C30.76 43 33 45.24 33 48"/>
+        <path d="M47 43H44C41.24 43 39 45.24 39 48"/>
+    </g>
+</svg>
+
+     <span class="text-white text-sm mt-3 capitalize font-[font2]">
+       pop
+     </span>
+
+     <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
+        10 sound
+      </span>
 
     </div>
+
+
+    <div data-status="200" class="w-[150px] h-[140px] rounded-2xl bg-[#11111d] border border-white/5 hidden lg:flex flex-col items-center justify-center">
+
+        <svg
+    width="70"
+    height="70"
+    viewBox="0 0 70 70"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <linearGradient id="rapGradient" x1="20" y1="12" x2="50" y2="62">
+            <stop stop-color="#FF62C0"/>
+            <stop offset="1" stop-color="#D52BFF"/>
+        </linearGradient>
+
+        <filter id="rapGlow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <g
+        stroke="url(#rapGradient)"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#rapGlow)"
+    >
+        <rect
+            x="25"
+            y="12"
+            width="20"
+            height="34"
+            rx="10"
+            transform="rotate(18 35 29)"
+        />
+
+        <path d="M21 30L45 38"/>
+        <path d="M23 25L47 33"/>
+        <path d="M26 20L49 28"/>
+
+        <path d="M28 43C31 48 36 51 42 50"/>
+        <path d="M42 50L36 63"/>
+        <path d="M33 63H40"/>
+    </g>
+</svg>
+
+       <span class="text-white text-sm mt-3 capitalize font-[font2]">
+       rap
+     </span>
+
+     <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
+        5 sound
+      </span>
+
+    </div>
+
+
+    <div data-status="300" class="w-[150px] h-[140px] rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
+
+        <svg
+    width="70"
+    height="70"
+    viewBox="0 0 70 70"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <linearGradient id="nostalgiaGradient" x1="10" y1="15" x2="60" y2="55">
+            <stop stop-color="#FF72D0"/>
+            <stop offset="1" stop-color="#D934FF"/>
+        </linearGradient>
+
+        <filter id="nostalgiaGlow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <g
+        stroke="url(#nostalgiaGradient)"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#nostalgiaGlow)"
+    >
+        <rect x="10" y="18" width="50" height="34" rx="3"/>
+
+        <circle cx="23" cy="35" r="7"/>
+        <circle cx="47" cy="35" r="7"/>
+
+        <path d="M23 28V42"/>
+        <path d="M47 28V42"/>
+
+        <path d="M30 29H40"/>
+        <path d="M30 41H40"/>
+
+        <path d="M16 48H54"/>
+    </g>
+</svg>
+
+       <span class="text-white text-sm mt-3 capitalize font-[font2]">
+       nostalgia
+     </span>
+
+     <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
+        10 sound
+      </span>
+
+    </div>
+
+
+    <div data-status="400" class="w-[150px] h-[140px] rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
+
+        <svg
+    width="70"
+    height="70"
+    viewBox="0 0 70 70"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <linearGradient id="happyGradient" x1="15" y1="10" x2="55" y2="60">
+            <stop stop-color="#FFF600"/>
+            <stop offset="1" stop-color="#FFB800"/>
+        </linearGradient>
+
+        <filter id="happyGlow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <g
+        stroke="url(#happyGradient)"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#happyGlow)"
+    >
+        <circle cx="35" cy="35" r="22"/>
+
+        <circle cx="27" cy="29" r="1.5" fill="#FFF600"/>
+        <circle cx="43" cy="29" r="1.5" fill="#FFF600"/>
+
+        <path d="M25 39C27.5 44 31 46 35 46C39 46 42.5 44 45 39"/>
+    </g>
+</svg>
+
+       <span class="text-white text-sm mt-3 capitalize font-[font2]">
+       happy
+     </span>
+
+     <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
+        150 sound
+      </span>
+
+    </div>
+
+
+    <div data-status="500" class="w-[150px] h-[140px] rounded-2xl bg-[#11111d] border border-white/5 hidden md:flex flex-col items-center justify-center">
+
+        <svg
+    width="70"
+    height="70"
+    viewBox="0 0 70 70"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <linearGradient id="sadGradient" x1="15" y1="15" x2="55" y2="60">
+            <stop stop-color="#36CFFF"/>
+            <stop offset="1" stop-color="#197BFF"/>
+        </linearGradient>
+
+        <filter id="sadGlow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <g
+        stroke="url(#sadGradient)"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#sadGlow)"
+    >
+        <path
+            d="M17 38C17 32.48 21.48 28 27 28C28.4 22.18 33.6 18 39.5 18C46.4 18 52 23.6 52 30.5C52 30.9 52 31.3 51.9 31.7C55.5 32.3 58 35.4 58 39C58 43 54.8 46 50.8 46H25C20.6 46 17 42.4 17 38Z"
+        />
+
+        <path d="M25 51L22 57"/>
+        <path d="M35 51L32 57"/>
+        <path d="M45 51L42 57"/>
+        <path d="M54 51L51 57"/>
+    </g>
+</svg>
+
+       <span class="text-white text-sm mt-3 capitalize font-[font2]">
+       sad
+     </span>
+
+     <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
+        110 sound
+      </span>
+
+    </div>
+
+
+    <div data-status="600" class="w-[150px] h-[140px] rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
+
+            <svg
+    width="70"
+    height="70"
+    viewBox="0 0 70 70"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <filter id="sportGlow">
+            <feGaussianBlur stdDeviation="2" result="blur"/>
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <g
+        stroke="#F5F5F5"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#sportGlow)"
+    >
+
+        <circle
+            cx="35"
+            cy="35"
+            r="23"
+            fill="#11111d"
+        />
+
+        <path
+            d="M35 23L27 28L30 37H40L43 28L35 23Z"
+            fill="#F5F5F5"
+        />
+
+        <path
+            d="M27 28L20 24"
+        />
+
+        <path
+            d="M43 28L50 24"
+        />
+
+        <path
+            d="M30 37L24 45"
+        />
+
+        <path
+            d="M40 37L46 45"
+        />
+
+        <path
+            d="M24 45L29 54"
+        />
+
+        <path
+            d="M46 45L41 54"
+        />
+
+        <path
+            d="M29 54L35 58L41 54"
+        />
+
+        <path
+            d="M20 24L17 32L24 45"
+        />
+
+        <path
+            d="M50 24L53 32L46 45"
+        />
+
+        <path
+            d="M35 23L35 16"
+        />
+
+        <path
+            d="M20 24L25 18"
+        />
+
+        <path
+            d="M50 24L45 18"
+        />
+
+    </g>
+
+    <path
+        d="M35 23L27 28L30 37H40L43 28L35 23Z"
+        fill="#15151F"
+        stroke="#FFFFFF"
+        stroke-width="1.5"
+        stroke-linejoin="round"
+    />
+
+</svg>
+
+       <span class="text-white text-sm mt-3 capitalize font-[font2]">
+       sport
+     </span>
+
+     <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
+        60 sound
+      </span>
+
+    </div>
+
+
+
+</div>
 
 
     <!-- / mode_Vibe / -->
@@ -647,29 +1030,61 @@
 
 
 
-    <div class="trending_Artist my-20  flex justify-evenly *:h-full">
+<div class="trending_Artist w-full flex flex-wrap justify-between gap-2 lg:gap-8 my-10 lg:my-20">
 
-        <div class="trend w-[40%]"></div>
+    <!-- trend / / / -->
 
+    <div class="trend w-full lg:w-[40%]">
 
+       <div class="title_trend pl-2 w-full text-white flex pr-2 text-lg capitalize font-bold lg:text-2xl font-[font4]">
 
-        <div class="art  w-[50%] *:w-full flex flex-wrap">
+        trending now
 
-            <div class="titleart pb-10">
-                <h3 class="capitalize font-[font4] font-bold text-lg xl:text-2xl text-white px-5">top artist</h3>
-            </div>
+     <img src="src/Asset/img/wired-flat-2550-logo-tinder-hover-flame.gif" alt="" class="w-7 h-7 ml-2 object-contain">
 
+    </div>
 
-            <div class="aboutart w-full flex flex-wrap justify-evenly gap-5 px-4 sm:gap-7 md:gap-10"></div>
+        <!-- create box trend / /   -->
 
-            </div>
+        <div class="trendall my-5 lg:my-2 w-full flex flex-wrap">
 
         </div>
 
     </div>
 
+    <!-- trend / / / -->
+
+
+    <!-- art   / /   /   -->
+
+    <div class="art w-full lg:w-[50%] flex flex-wrap content-start">
+
+        <div class="titleart w-full pb-0">
+
+            <h3 class="capitalize my-4 lg:my-3 font-[font4] font-bold text-lg xl:text-2xl text-white px-2">
+
+                top artist
+
+            </h3>
+
+        </div>
+
+        <div class="aboutart w-full flex flex-wrap justify-start gap-4 px-2 sm:gap-5 md:gap-7 lg:gap-8 overflow-x-auto lg:overflow-x-visible scrollbar-none">
+
+        </div>
+
+    </div>
+
+    <!-- art  // / /  / -->
+
+</div>
+
 
     <!-- / trending_Artist / -->
+
+
+
+
 
 
     <div class="music_Player"></div>

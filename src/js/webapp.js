@@ -32,7 +32,7 @@ window.addEventListener("load", () => {
 
         loop: true,
 
-        speed: 800,
+        speed: 350,
 
         grabCursor: true,
 
@@ -125,134 +125,6 @@ window.addEventListener("load", () => {
 
 
 
-// arr mode /// / / / / / /
-
-const covermode = [{
-
-
-    cover: "src/Asset/img/playlist/drive.jpg",
-
-    title: "drive",
-
-    count: "4",
-
-
-},
-
-{
-
-    cover: "src/Asset/img/playlist/love.jpg",
-
-    title: "love",
-
-    count: "7",
-
-},
-
-{
-
-
-    cover: "src/Asset/img/playlist/pexels-rdne-8224397.jpg",
-
-    title: "sport",
-
-    count: "5",
-
-
-},
-
-{
-
-
-    cover: "src/Asset/img/playlist/travel.jpg",
-
-    title: "travel",
-
-    count: "3",
-
-
-},
-
-]
-
-covermode.forEach((val) => {
-
-
-    mode.innerHTML += `
-
-<figure class="group relative shrink-0 w-[calc((100%-40px)/3)] sm:w-[160px] md:w-[180px] xl:w-[220px] py-3 px-2 sm:px-3 border border-white/10 bg-white/[0.03] rounded-2xl overflow-hidden transition-all duration-300 hover:bg-white/[0.06] hover:border-white/20">
-
-    <div class="relative w-full aspect-square  overflow-hidden rounded-xl">
-
-        <img
-
-            src="${val.cover}"
-
-            alt="${val.title}"
-
-            class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-
-        >
-
-        <div class="absolute top-2 right-2">
-
-            <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center bg-black/45 backdrop-blur-xl border border-white/15 text-white/70 hover:text-white hover:bg-black/70 hover:border-white/30 hover:scale-110 transition-all duration-300 cursor-pointer shadow-[0_5px_20px_rgba(0,0,0,0.4)]">
-
-                <svg
-
-                    class="w-3.5 h-3.5 sm:w-4 sm:h-4"
-
-                    viewBox="0 0 24 24"
-
-                    fill="currentColor"
-
-                >
-
-                    <circle cx="12" cy="5" r="1.5"></circle>
-
-                    <circle cx="12" cy="12" r="1.5"></circle>
-
-                    <circle cx="12" cy="19" r="1.5"></circle>
-
-                </svg>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="flex items-center justify-between mt-3 px-1">
-
-        <div class="min-w-0">
-
-            <h5 class="text-white text-sm sm:text-lg font-semibold capitalize font-[font3] truncate">
-
-                ${val.title}
-
-            </h5>
-
-            <span class="text-white/40 text-[10px] sm:text-sm font-[font1]">
-
-                ${val.count} songs
-
-            </span>
-
-        </div>
-
-    </div>
-
-</figure>
-
-`
-})
-
-// for made you /  /  /  /  / /  /  / /  / /  /  /  /  / /  /  /  / // / / /  // /  / /  // 
-
-
-
-
-
 
 
 
@@ -307,39 +179,50 @@ profileInput.addEventListener("change", () => {
 const arti = [{
 
     cover: "src/Asset/img/arti/ebi-0178a53f6fde218-photo.jpeg",
+
     title: "ebi",
-    id : "ebi"
+
+    id: "ebi"
 
 },
 
 {
 
     cover: "src/Asset/img/arti/hayedeh-a566917d476f043-photo.jpeg",
+
     title: "hayedeh",
-    id:"hayedeh"
+
+    id: "hayedeh"
 
 },
 
 {
 
     cover: "src/Asset/img/arti/majid-razavi-1ea0eb59ecaac93-photo.jpeg",
+
     title: "majidrazavi",
-    id:"majidrazavi"
+
+    id: "majidrazavi"
 
 },
 
 {
 
     cover: "src/Asset/img/arti/siavash-ghomayshi-04ef435f4edf9b7-photo.jpeg",
+
     title: "siavash",
-    id:"siavash"
+
+    id: "siavash"
 
 },
+
 {
 
     cover: "src/Asset/img/arti/shadmehr-aghili-627264b97c1a6e8-photo.jpeg",
+
     title: "shadmehr",
-    id:"shadmehr"
+
+    id: "shadmehr"
 
 },
 
@@ -351,20 +234,182 @@ arti.forEach((val) => {
 
     aboutart.innerHTML += `
 
-    <figure id = "${val.id}" class="w-[70px] last:hidden xl:last:flex cursor-pointer sm:w-[85px] md:w-[100px] shrink-0 flex flex-col items-center">
+    <figure id="${val.id}" class="w-[70px] sm:w-[82px] md:w-[92px] lg:w-[100px] shrink-0 cursor-pointer flex flex-col items-center">
 
         <img
-            class="rounded-full w-[70px] h-[70px] sm:w-[85px] sm:h-[85px] md:w-[100px] md:h-[100px] object-cover"
+
+            class="rounded-full w-[65px] h-[65px] sm:w-[78px] sm:h-[78px] md:w-[88px] md:h-[88px] lg:w-[100px] lg:h-[100px] object-cover"
+
             src="${val.cover}"
+
             alt=""
+
         >
 
-        <figcaption class="text-white pt-2 text-center text-sm sm:text-md capitalize font-[font2] whitespace-nowrap">
+        <figcaption class="text-white pt-2 text-center text-xs sm:text-sm md:text-md capitalize font-[font2] whitespace-nowrap">
+
             ${val.title}
+
         </figcaption>
 
     </figure>
 
     `
+
+})
+
+
+
+// create box trend sound
+
+const trendall = document.querySelector(".trendall")
+
+const trend = [
+
+    {
+
+        cover: "src/Asset/img/trend/5aa69a5de439293.jpeg",
+
+        sound: "https://irsv.upmusics.com/singletracks/2026/08/Arshiyas%20-%20Adi%20Ni%20UpMusics.mp3",
+
+        number: "01",
+
+        artist: "arshiyas",
+
+        music: "addi nist",
+
+        time : "2:26"
+
+    },
+
+    {
+
+        cover: "src/Asset/img/trend/e4a224bfeafddc7.jpeg",
+
+        sound: "https://dl.rozmusic.com/Music/1405/05/28/Seper%20-%20Zendegie%20Adi%20%28128%29.mp3",
+
+        number: "02",
+
+        artist: "Seper",
+
+        music: "Zendegie Adi",
+
+        time : "3:58"
+
+    },
+
+    {
+
+        cover: "src/Asset/img/trend/bfbc2103a16e68a.jpeg",
+
+        sound: "https://dl.sarimusic.in/1405/06/03/1/Babak%20Amini%20-%20Sayeh%20%28ft.Navan%29%20%28128%29.mp3",
+
+        number: "03",
+
+        artist: "babak amini & navan",
+
+        music: "sayeh",
+
+        time : "4:39"
+
+    },
+
+    {
+
+        cover: "src/Asset/img/trend/gol.jpeg",
+
+        sound: "https://dl.uptune.ir/music/1405/06/06/Sogand%20-%20Gole%20Sangam%20%5B320%5D.mp3",
+
+        number: "04",
+
+        artist: "sogand",
+
+        music: "gol sangam",
+
+        time : "2:58"
+
+    },
+
+]
+
+
+
+
+
+trend.forEach((val) => {
+
+trendall.innerHTML += `
+
+    <div class="boxstrend w-full my-1.5 mx-2 md:mx-0">
+
+        <div class="trend_item *:font-font1 *:capitalize w-full min-h-[70px] sm:min-h-[75px] *:text-white cursor-pointer flex items-center gap-2 sm:gap-3 p-2 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-violet-400/30 transition-all duration-300">
+
+            <div class="trend_number w-[22px] sm:w-[25px] shrink-0 text-center text-white/40 font-bold">
+
+                ${val.number}
+
+            </div>
+
+
+
+            <div class="trend_img relative w-[50px] h-[50px] sm:w-[55px] sm:h-[55px] shrink-0 overflow-hidden rounded-xl">
+
+                <img src="${val.cover}" alt="" class="w-full h-full rounded-xl object-cover transition duration-500">
+
+                <div class="absolute inset-0 flex items-center justify-center bg-black/40 transition duration-300">
+
+                    ▶
+
+                </div>
+
+            </div>
+
+
+
+            <div class="trend_info min-w-0 flex-1">
+
+                <div class="trend_name truncate font-bold text-xs sm:text-sm md:text-base">
+
+                    ${val.music}
+
+                </div>
+
+                <div class="trend_artist truncate text-[10px] sm:text-xs md:text-sm text-white/45 mt-1">
+
+                    ${val.artist}
+
+                </div>
+
+            </div>
+
+
+
+            <div class="trend_time shrink-0 text-[10px] sm:text-xs md:text-sm text-white/40">
+
+                ${val.time}
+
+            </div>
+
+
+
+            <button class="trend_favorite shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-base sm:text-lg text-white/50 hover:text-pink-400 hover:bg-white/10 transition">
+
+                ♡
+
+            </button>
+
+
+
+            <button class="trend_download shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-base sm:text-lg text-white/50 hover:text-violet-400 hover:bg-white/10 transition">
+
+                ↓
+
+            </button>
+
+        </div>
+
+    </div>
+
+`
 
 })
