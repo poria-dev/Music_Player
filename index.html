@@ -13,8 +13,7 @@
     content="width=device-width, initial-scale=1.0"
 >
 
-<title>Trending Music</title>
-
+<title>PoriVa Music</title>
 
 <link
     rel="stylesheet"
@@ -27,136 +26,491 @@
 >
 
 <style>
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #08080b;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.musicSwiper {
+    contain: layout paint;
+    will-change: transform;
+}
+
+.musicSwiper .swiper-pagination {
+    bottom: 5px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.musicSwiper .swiper-pagination-bullet {
+    width: 7px;
+    height: 7px;
+    margin: 0 !important;
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    transition:
+        width 0.2s ease,
+        background 0.2s ease;
+}
+
+.musicSwiper .swiper-pagination-bullet-active {
+    width: 28px;
+    background: rgb(167, 139, 250);
+}
+
+.musicSwiper .swiper-slide {
+    height: auto;
+}
+
+.musicSwiper .swiper-slide > div {
+    height: 100%;
+}
+
+.musicSwiper img {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+@media (max-width: 767px) {
+
+    .musicSwiper {
+        padding-bottom: 48px !important;
+    }
+
     .musicSwiper .swiper-pagination {
-        bottom: 5px !important;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 7px;
+        bottom: 2px !important;
     }
 
     .musicSwiper .swiper-pagination-bullet {
-        width: 7px;
-        height: 7px;
-        margin: 0 !important;
-        opacity: 1;
-        background: rgba(255, 255, 255, 0.22);
-        border-radius: 999px;
-        transition:
-            width 0.35s ease,
-            background 0.35s ease,
-            transform 0.35s ease,
-            opacity 0.35s ease;
-    }
-
-    .musicSwiper .swiper-pagination-bullet:hover {
-        transform: scale(1.25);
-        background: rgba(255, 255, 255, 0.5);
+        width: 6px;
+        height: 6px;
     }
 
     .musicSwiper .swiper-pagination-bullet-active {
-        width: 28px;
-        background: rgb(167, 139, 250);
-        box-shadow: 0 0 18px rgba(139, 92, 246, 0.5);
+        width: 22px;
     }
 
-    .musicSwiper .swiper-slide {
-        height: auto;
-    }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
 
     .musicSwiper .swiper-slide > div {
-        height: 100%;
+        min-height: 390px;
     }
 
-    @media (max-width: 767px) {
-        .musicSwiper {
-            padding-bottom: 48px !important;
-        }
+}
 
-        .musicSwiper .swiper-pagination {
-            bottom: 2px !important;
-        }
+@media (min-width: 1280px) {
 
-        .musicSwiper .swiper-pagination-bullet {
-            width: 6px;
-            height: 6px;
-        }
-
-        .musicSwiper .swiper-pagination-bullet-active {
-            width: 22px;
-        }
+    .musicSwiper .swiper-slide > div {
+        min-height: 430px;
     }
 
-    @media (min-width: 768px) and (max-width: 1279px) {
-        .musicSwiper .swiper-slide > div {
-            min-height: 390px;
-        }
-    }
+}
 
-    @media (min-width: 1280px) {
-        .musicSwiper .swiper-slide > div {
-            min-height: 430px;
-        }
-    }
+.cardpopular img {
+    transition: transform 0.25s ease;
+    will-change: transform;
+}
+
+.cardpopular .playlist-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.cardpopular .playlist-image:hover img {
+    transform: scale(1.04);
+}
+
+.cardpopular .playlist-play {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.cardpopular .playlist-image:hover .playlist-play {
+    opacity: 1;
+}
+
+.swiper-wrapper {
+    will-change: transform;
+}
+
+.cardreels video {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
 </style>
 
 </head>
 
 <body class="m-0 p-0 bg-[#08080b] select-none">
 
-<section class="w-full relative min-h-screen flex flex-wrap *:flex-wrap">
+
+<section class="w-full relative min-h-screen flex flex-row flex-nowrap items-start overflow-x-clip">
+
 
 <!-- /////////////////// -->
+<!--  left menu -->
+
+<div class="menu w-full md:w-[20%] xl:w-[15%] xl:basis-[15%] shrink-0 hidden md:flex flex-wrap h-screen sticky top-0 self-start *:w-full">
+
+    <div class="logo flex pl-3">
+
+        <figure class="w-30 h-30">
+
+            <img
+                src="src/Asset/img/logo-removebg-preview.png"
+                alt="PORIVA"
+                class="w-full h-full object-contain"
+            >
+
+        </figure>
+
+    </div>
 
 
+    <!-- select menu / -->
+
+    <div class="selectmenu relative flex flex-col gap-2 w-full rounded-2xl p-2 top-[-25%] backdrop-blur-xl *:font-font2 *:font-bold">
+
+        <div
+            id="menuActive"
+            class="absolute left-2 right-2 top-2 h-[48px] rounded-xl bg-gradient-to-r from-purple-600/70 via-purple-900/50 to-black/60 backdrop-blur-md border border-purple-400/20 transition-all duration-300">
+        </div>
 
 
-<div class="menu w-full md:w-[20%] xl:w-[15%] hidden flex-wrap md:flex h-full ">
+        <div
+            data-home="on"
+            id="homeMenu"
+            class="menuItem relative z-10 w-full h-[48px] flex items-center gap-3 px-4 cursor-pointer text-white rounded-xl">
 
-    
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 shrink-0">
+
+                <path d="m3 10 9-7 9 7"/>
+                <path d="M5 9v11h14V9"/>
+                <path d="M9 20v-6h6v6"/>
+
+            </svg>
+
+            <span class="font-font1 text-sm">
+                Home
+            </span>
+
+        </div>
+
+
+        <div
+            data-ser="on"
+            id="searchMenu"
+            class="menuItem relative z-10 w-full h-[48px] flex items-center gap-3 px-4 cursor-pointer text-white rounded-xl">
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 shrink-0">
+
+                <circle cx="11" cy="11" r="7"/>
+                <path d="m20 20-4-4"/>
+
+            </svg>
+
+            <span class="font-font1 text-sm">
+                Search
+            </span>
+
+        </div>
+
+
+        <div
+            data-love="on"
+            id="favoriteMenu"
+            class="menuItem relative z-10 w-full h-[48px] flex items-center gap-3 px-4 cursor-pointer text-white rounded-xl">
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 shrink-0">
+
+                <path d="M20.8 8.6c0 5.5-8.8 10.4-8.8 10.4S3.2 14.1 3.2 8.6A4.6 4.6 0 0 1 12 6.1a4.6 4.6 0 0 1 8.8 2.5Z"/>
+
+            </svg>
+
+            <span class="font-font1 text-sm">
+                Favorite
+            </span>
+
+        </div>
+
+
+        <div
+            id="radioMenu"
+            class="menuItem relative z-10 w-full h-[48px] flex items-center gap-3 px-4 cursor-pointer text-white rounded-xl">
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 shrink-0">
+
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M8.5 8.5a5 5 0 0 0 0 7"/>
+                <path d="M15.5 8.5a5 5 0 0 1 0 7"/>
+                <path d="M5.5 5.5a9 9 0 0 0 0 13"/>
+                <path d="M18.5 5.5a9 9 0 0 1 0 13"/>
+
+            </svg>
+
+            <span class="font-font1 text-sm">
+                Radio
+            </span>
+
+        </div>
+
+
+        <div
+            id="discoverMenu"
+            class="menuItem relative z-10 w-full h-[48px] flex items-center gap-3 px-4 cursor-pointer text-white rounded-xl">
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 shrink-0">
+
+                <circle cx="12" cy="12" r="9"/>
+                <path d="m15.5 8.5-2.2 4.8-4.8 2.2 2.2-4.8 4.8-2.2Z"/>
+
+            </svg>
+
+            <span class="font-font1 text-sm">
+                Discover
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- select menu / -->
+
 </div>
 
-
-
-
+<!--  left menu -->
 <!-- /////////////////// -->
+
+
+ <!--  / / /  /  / /  /  /  / /   -->
+
+
+    <!-- search org -->
+
+
+    <div id="searchBox" class="searchBox hidden fixed z-[1000] top-0 right-0 w-full md:w-[80%] xl:w-[85%] h-screen bg-[#08080b] overflow-y-auto">
+
+    <div class="w-full min-h-screen px-5 sm:px-8 md:px-10 lg:px-14 py-8">
+
+        <div class="w-full flex items-center justify-between mb-10">
+
+            <button
+                id="closeSearch"
+                type="button"
+                class="w-11 h-11 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all cursor-pointer">
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-5 h-5">
+
+                    <path d="M6 6L18 18"/>
+                    <path d="M18 6L6 18"/>
+
+                </svg>
+
+            </button>
+
+        </div>
+
+
+        <div class="w-full max-w-3xl mx-auto">
+
+            <div class="relative w-full">
+
+                <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="Search for an artist or song..."
+                    class="w-full h-14 md:h-16 rounded-2xl border border-white/10 bg-white/[0.06] px-5 pr-14 text-white text-sm md:text-base outline-none font-[font1] placeholder:text-white/30 focus:border-violet-400/50 focus:bg-white/[0.08] transition-all"
+                >
+
+                <button
+                    id="searchBtn"
+                    type="button"
+                    class="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-xl flex items-center justify-center text-white/50 hover:text-violet-400 hover:bg-white/5 transition-all cursor-pointer">
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="w-5 h-5">
+
+                        <circle cx="11" cy="11" r="7"/>
+                        <path d="m20 20-4-4"/>
+
+                    </svg>
+
+                </button>
+
+            </div>
+
+
+            <div class="w-full mt-8">
+
+                <div class="flex items-center justify-between mb-5">
+
+                    <h3 class="text-white text-lg md:text-xl font-bold capitalize font-[font4]">
+                        Search results
+                    </h3>
+
+                </div>
+
+                <div
+
+                    id="searchResults" class="w-full min-h-[300px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+
+
+    <!-- search org -->
+
+
+<!-- / / / /  /  /  /  /   -->
+
+
+
 
 
 <!-- / center main org result / -->
 
-
-<div class="org_center w-full md:w-[80%] xl:w-[60%] min-h-screen *:w-full *:flex-wrap">
-
-
-    <!-- / inputSearch / -->
+<div class="org_center relative w-full md:w-[80%] xl:w-[60%] xl:basis-[60%] min-h-0 min-w-0 shrink-0">
 
 
-    <div class="inputSearch sticky top-0 z-[999] hidden md:flex gap-10 *:flex *:flex-wrap mb-5 bg-[#08080b]/90 backdrop-blur-xl">
+<!-- / inputSearch / -->
+
+<div class="inputSearch sticky top-0 z-[999] hidden md:flex gap-10 *:flex *:flex-wrap mb-5 bg-[#08080b]/90 max-w-full overflow-hidden">
+
+    <div class="input md:w-[40%] xl:w-[60%] min-w-0 py-5 relative pr-2">
+
+        <input
+            type="text"
+            id="inp"
+            class="border ml-5 border-white/10 bg-white/[0.06] relative w-full py-3 font-[font3] rounded-2xl px-3 pr-12 text-white outline-none transition-all duration-200 placeholder:font-[font1] placeholder:px-2 placeholder:text-white/40 focus:border-violet-400/50 focus:bg-white/[0.09]"
+            placeholder="Search for an artist or song..."
+        >
+
+        <svg
+            class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 cursor-pointer text-white/40 transition-all duration-200 hover:text-violet-400"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2">
+
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m21 21-4.35-4.35m2.1-5.4a7.5 7.5 0 1 1-15 0Z"
+            />
+
+        </svg>
+
+    </div>
 
 
-        <div class="input md:w-[40%] xl:w-[60%] py-5 relative pr-2">
+    <!-- //// -->
+
+    <div class="status w-[35%] min-w-0 *:w-1/4 gap-5 flex justify-evenly items-center *:flex *:justify-center">
+
+        <div class="update">
+
+            <a
+                href="#"
+                id="up"
+                class="border capitalize border-violet-400/20 bg-violet-500/10 hover:bg-violet-500/20 hover:border-violet-400/40 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)] py-2 px-5 rounded-xl cursor-pointer font-[font2] text-white/80 hover:text-white transition-all duration-200">
+
+                premium
+
+            </a>
+
+        </div>
 
 
-            <input
-                type="text"
-                id="inp"
-                class="border ml-5 border-white/10 bg-white/[0.06] backdrop-blur-xl relative w-full py-3 font-[font3] rounded-2xl px-3 pr-12 text-white outline-none shadow-[0_8px_30px_rgba(0,0,0,0.25)] transition-all duration-300 placeholder:font-[font1] placeholder:px-2 placeholder:text-white/40 focus:border-violet-400/50 focus:bg-white/[0.09] focus:shadow-[0_0_25px_rgba(139,92,246,0.2)]"
-                placeholder="Search for an artist or song..."
-            >
+        <div class="icon">
 
             <svg
-                class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 cursor-pointer text-white/40 transition-all duration-300 hover:text-violet-400 hover:scale-110"
+                class="w-9 h-9 cursor-pointer text-white/60 hover:text-violet-400 transition-all duration-200"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                stroke-width="2"
-            >
+                stroke-width="1.8">
 
                 <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="m21 21-4.35-4.35m2.1-5.4a7.5 7.5 0 1 1-15 0Z"
+                    d="M18 8A6 6 0 0 0 6 8c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4"
                 />
 
             </svg>
@@ -164,1003 +518,797 @@
         </div>
 
 
-        <!-- //// -->
+        <div class="img h-[80%]">
 
+            <figure
+                id="profileImage"
+                class="w-[70%] h-[90%] rounded-full overflow-hidden border border-white/10 cursor-pointer transition-all duration-200">
 
-        <div class="status w-[35%] *:w-1/4 gap-5 flex justify-evenly items-center *:flex *:justify-center">
-
-
-            <div class="update">
-
-                <a
-                    href="#"
-                    id="up"
-                    class="border capitalize border-violet-400/20 bg-violet-500/10 hover:bg-violet-500/20 hover:border-violet-400/40 hover:shadow-[0_0_25px_rgba(139,92,246,0.2)] py-2 px-5 rounded-xl cursor-pointer font-[font2] text-white/80 hover:text-white transition-all duration-300"
-                >
-                    premium
-                </a>
-
-            </div>
-
-
-            <div class="icon">
-
-                <svg
-                    class="w-9 h-9 cursor-pointer text-white/60 hover:text-violet-400 hover:scale-110 hover:rotate-6 transition-all duration-300 drop-shadow-[0_0_10px_rgba(139,92,246,0.25)]"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="1.8"
+                <img
+                    id="profileImg"
+                    src="src/Asset/img/imgcarector.jfif"
+                    alt="Profile"
+                    class="w-full h-full object-cover"
                 >
 
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M18 8A6 6 0 0 0 6 8c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4"
-                    />
+            </figure>
 
-                </svg>
-
-            </div>
-
-
-       <div class="img h-[80%]">
-
-
-<figure
-    id="profileImage"
-    class="w-[70%] h-[90%] rounded-full overflow-hidden border border-white/10 cursor-pointer shadow-[0_0_25px_rgba(0,0,0,0.4)] hover:border-violet-400/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-300"
->
-
-    <img
-        id="profileImg"
-        src="src/Asset/img/imgcarector.jfif"
-        alt="Profile"
-        class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-    >
-
-</figure>
-
-<input
-    type="file"
-    id="profileInput"
-    accept="image/*"
-    class="hidden"
->
-
-</div>
-
-
+            <input
+                type="file"
+                id="profileInput"
+                accept="image/*"
+                class="hidden"
+            >
 
         </div>
 
-
     </div>
 
+</div>
 
-    <!-- / inputSearch / -->
-
-
-    <!-- ////////////////////////////////// -->
+<!-- / inputSearch / -->
 
 
-    <!-- / slider / -->
+<!-- ////////////////////////////////// -->
+
+<!-- / slider / -->
+
+<div class="w-full py-3 px-2 sm:px-3 md:px-4 overflow-hidden">
+
+    <div class="relative w-full">
+
+        <div class="swiper musicSwiper w-full !pb-16 sm:!pb-16">
+
+            <div class="swiper-wrapper cursor-grab active:cursor-grabbing">
 
 
-    <div class="w-full py-3 px-2 sm:px-3 md:px-4 overflow-hidden">
+                <!-- Slide 1 -->
 
-        <div class="relative w-full">
+                <div class="swiper-slide !h-auto">
 
+                    <div class="group relative overflow-hidden rounded-[22px] bg-[#111116] border border-white/10 h-full min-h-[360px] sm:min-h-[390px] md:min-h-[410px] xl:min-h-[430px]">
 
-            <div class="absolute -inset-10 blur-[100px] pointer-events-none"></div>
+                        <div class="relative w-full h-[360px] sm:h-[390px] md:h-[410px] xl:h-[430px] overflow-hidden">
 
+                            <img
+                                src="src/Asset/img/pexels-tnarg-2061886.jpg"
+                                class="w-full h-full object-cover object-center"
+                                alt="Abbas Zare"
+                                loading="eager"
+                                decoding="async"
+                            >
 
-            <div class="swiper musicSwiper w-full !pb-16 sm:!pb-16">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
 
-
-                <div class="swiper-wrapper cursor-grab active:cursor-grabbing">
-
-
-                    <!-- Slide 1 -->
-
-
-                    <div class="swiper-slide !h-auto">
-
-                        <div class="group relative overflow-hidden rounded-[22px] bg-[#111116] border border-white/10 shadow-[0_20px_70px_rgba(0,0,0,0.55)] transition-all duration-500 hover:border-violet-400/30 h-full min-h-[360px] sm:min-h-[390px] md:min-h-[410px] xl:min-h-[430px]">
-
-
-                            <div class="relative w-full h-[360px] sm:h-[390px] md:h-[410px] xl:h-[430px] overflow-hidden">
+                        </div>
 
 
-                                <img
-                                    src="src/Asset/img/pexels-tnarg-2061886.jpg"
-                                    class="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
-                                    alt="Abbas Zare"
-                                >
+                        <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 pt-24 sm:pt-28">
 
+                            <div class="flex items-end justify-between gap-3 sm:gap-4">
 
-                                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
+                                <div class="min-w-0">
 
-                                <div class="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                                    <span class="text-lg sm:text-xl md:text-2xl text-violet-300/80 font-[font2]">
+                                        Trending
+                                    </span>
 
+                                    <h2 class="text-white text-2xl sm:text-3xl font-bold mt-1 font-[font3] truncate">
+                                        Abbas Zare
+                                    </h2>
 
-                            </div>
-
-
-                            <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 pt-24 sm:pt-28">
-
-
-                                <div class="flex items-end justify-between gap-3 sm:gap-4">
-
-
-                                    <div class="min-w-0">
-
-
-                                        <span class="text-lg sm:text-xl md:text-2xl text-violet-300/80 font-[font2]">
-                                            Trending
-                                        </span>
-
-
-                                        <h2 class="text-white text-2xl sm:text-3xl font-bold mt-1 font-[font3] truncate">
-                                            Abbas Zare
-                                        </h2>
-
-
-                                        <p class="text-white/60 text-base sm:text-lg md:text-xl mt-1 truncate">
-                                            Khalij
-                                        </p>
-
-
-                                    </div>
-
-
-                                    <div class="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/[0.08] backdrop-blur-xl border border-white/15 flex items-center justify-center text-white/80 hover:bg-violet-500/20 hover:border-violet-400/60 hover:text-violet-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] transition-all duration-300">
-
-
-                                        <svg
-                                            class="w-5 h-5 translate-x-[-1px]"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            stroke-width="1.8"
-                                        >
-
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.29-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"
-                                            />
-
-                                        </svg>
-
-
-                                    </div>
-
+                                    <p class="text-white/60 text-base sm:text-lg md:text-xl mt-1 truncate">
+                                        Khalij
+                                    </p>
 
                                 </div>
 
 
-                            </div>
+                                <div class="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/[0.08] border border-white/15 flex items-center justify-center text-white/80">
 
+                                    <svg
+                                        class="w-5 h-5 translate-x-[-1px]"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="1.8">
 
-                        </div>
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.29-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"
+                                        />
 
-                    </div>
-
-
-                    <!-- Slide 2 -->
-
-
-                    <div class="swiper-slide !h-auto">
-
-                        <div class="group relative overflow-hidden rounded-[22px] bg-[#111116] border border-white/10 shadow-[0_20px_70px_rgba(0,0,0,0.55)] transition-all duration-500 hover:border-violet-400/30 h-full min-h-[360px] sm:min-h-[390px] md:min-h-[410px] xl:min-h-[430px]">
-
-
-                            <div class="relative w-full h-[360px] sm:h-[390px] md:h-[410px] xl:h-[430px] overflow-hidden">
-
-
-                                <img
-                                    src="src/Asset/img/pexels-oktay-koseoglu-42034955-28028969.jpg"
-                                    class="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
-                                    alt="Saren"
-                                >
-
-
-                                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
-
-                                <div class="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
-
-
-                            </div>
-
-
-                            <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 pt-24 sm:pt-28">
-
-
-                                <div class="flex items-end justify-between gap-3 sm:gap-4">
-
-
-                                    <div class="min-w-0">
-
-
-                                        <span class="text-lg sm:text-xl md:text-2xl text-violet-300/80 font-[font2]">
-                                            Trending
-                                        </span>
-
-
-                                        <h2 class="text-white text-2xl sm:text-3xl font-bold mt-1 font-[font3] truncate">
-                                            Saren
-                                        </h2>
-
-
-                                        <p class="text-white/60 text-base sm:text-lg md:text-xl mt-1 truncate">
-                                            Parandeh
-                                        </p>
-
-
-                                    </div>
-
-
-                                    <div class="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/[0.08] backdrop-blur-xl border border-white/15 flex items-center justify-center text-white/80 hover:bg-violet-500/20 hover:border-violet-400/60 hover:text-violet-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] transition-all duration-300">
-
-
-                                        <svg
-                                            class="w-5 h-5 translate-x-[-1px]"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            stroke-width="1.8"
-                                        >
-
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.29-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"
-                                            />
-
-                                        </svg>
-
-
-                                    </div>
-
+                                    </svg>
 
                                 </div>
 
-
                             </div>
-
 
                         </div>
 
                     </div>
-
-
-                    <!-- Slide 3 -->
-
-
-                    <div class="swiper-slide !h-auto">
-
-                        <div class="group relative overflow-hidden rounded-[22px] bg-[#111116] border border-white/10 shadow-[0_20px_70px_rgba(0,0,0,0.55)] transition-all duration-500 hover:border-violet-400/30 h-full min-h-[360px] sm:min-h-[390px] md:min-h-[410px] xl:min-h-[430px]">
-
-
-                            <div class="relative w-full h-[360px] sm:h-[390px] md:h-[410px] xl:h-[430px] overflow-hidden">
-
-
-                                <img
-                                    src="src/Asset/img/pi2.jpg"
-                                    class="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
-                                    alt="Shadmehr"
-                                >
-
-
-                                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
-
-                                <div class="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
-
-
-                            </div>
-
-
-                            <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 pt-24 sm:pt-28">
-
-
-                                <div class="flex items-end justify-between gap-3 sm:gap-4">
-
-
-                                    <div class="min-w-0">
-
-
-                                        <span class="text-lg sm:text-xl md:text-2xl text-violet-300/80 font-[font2]">
-                                            Trending
-                                        </span>
-
-
-                                        <h2 class="text-white text-2xl sm:text-3xl font-bold mt-1 font-[font3] truncate">
-                                            Panah
-                                        </h2>
-
-
-                                        <p class="text-white/60 text-base sm:text-lg md:text-xl mt-1 truncate">
-                                            Taghdir
-                                        </p>
-
-
-                                    </div>
-
-
-                                    <div class="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/[0.08] backdrop-blur-xl border border-white/15 flex items-center justify-center text-white/80 hover:bg-violet-500/20 hover:border-violet-400/60 hover:text-violet-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] transition-all duration-300">
-
-
-                                        <svg
-                                            class="w-5 h-5 translate-x-[-1px]"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            stroke-width="1.8"
-                                        >
-
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.29-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"
-                                            />
-
-                                        </svg>
-
-
-                                    </div>
-
-
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Slide 4 -->
-
-
-                    <div class="swiper-slide !h-auto">
-
-                        <div class="group relative overflow-hidden rounded-[22px] bg-[#111116] border border-white/10 shadow-[0_20px_70px_rgba(0,0,0,0.55)] transition-all duration-500 hover:border-violet-400/30 h-full min-h-[360px] sm:min-h-[390px] md:min-h-[410px] xl:min-h-[430px]">
-
-
-                            <div class="relative w-full h-[360px] sm:h-[390px] md:h-[410px] xl:h-[430px] overflow-hidden">
-
-
-                                <img
-                                    src="src/Asset/img/pi1.jpg"
-                                    class="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
-                                    alt="Lexi"
-                                >
-
-
-                                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
-
-                                <div class="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
-
-
-                            </div>
-
-
-                            <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 pt-24 sm:pt-28">
-
-
-                                <div class="flex items-end justify-between gap-3 sm:gap-4">
-
-
-                                    <div class="min-w-0">
-
-
-                                        <span class="text-lg sm:text-xl md:text-2xl text-orange-300 font-[font2]">
-                                            New
-                                        </span>
-
-
-                                        <h2 class="text-white text-2xl sm:text-3xl font-bold mt-1 font-[font3] truncate">
-                                            Lexi
-                                        </h2>
-
-
-                                        <p class="text-white/60 text-base sm:text-lg md:text-xl mt-1 truncate">
-                                            Divaneh
-                                        </p>
-
-
-                                    </div>
-
-
-                                    <div class="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/[0.08] backdrop-blur-xl border border-white/15 flex items-center justify-center text-white/80 hover:bg-violet-500/20 hover:border-violet-400/60 hover:text-violet-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] transition-all duration-300">
-
-
-                                        <svg
-                                            class="w-5 h-5 translate-x-[-1px]"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            stroke-width="1.8"
-                                        >
-
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.29-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"
-                                            />
-
-                                        </svg>
-
-
-                                    </div>
-
-
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
 
                 </div>
 
 
-                <div class="swiper-pagination"></div>
+                <!-- Slide 3 -->
+
+                <div class="swiper-slide !h-auto">
+
+                    <div class="group relative overflow-hidden rounded-[22px] bg-[#111116] border border-white/10 h-full min-h-[360px] sm:min-h-[390px] md:min-h-[410px] xl:min-h-[430px]">
+
+                        <div class="relative w-full h-[360px] sm:h-[390px] md:h-[410px] xl:h-[430px] overflow-hidden">
+
+                            <img
+                                src="src/Asset/img/pi2.jpg"
+                                class="w-full h-full object-cover object-center"
+                                alt="Shadmehr"
+                                loading="lazy"
+                                decoding="async"
+                            >
+
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
+
+                        </div>
+
+
+                        <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 pt-24 sm:pt-28">
+
+                            <div class="flex items-end justify-between gap-3 sm:gap-4">
+
+                                <div class="min-w-0">
+
+                                    <span class="text-lg sm:text-xl md:text-2xl text-violet-300/80 font-[font2]">
+                                        Trending
+                                    </span>
+
+                                    <h2 class="text-white text-2xl sm:text-3xl font-bold mt-1 font-[font3] truncate">
+                                        Panah
+                                    </h2>
+
+                                    <p class="text-white/60 text-base sm:text-lg md:text-xl mt-1 truncate">
+                                        Taghdir
+                                    </p>
+
+                                </div>
+
+
+                                <div class="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/[0.08] border border-white/15 flex items-center justify-center text-white/80">
+
+                                    <svg
+                                        class="w-5 h-5 translate-x-[-1px]"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="1.8">
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.29-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"
+                                        />
+
+                                    </svg>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Slide 4 -->
+
+                <div class="swiper-slide !h-auto">
+
+                    <div class="group relative overflow-hidden rounded-[22px] bg-[#111116] border border-white/10 h-full min-h-[360px] sm:min-h-[390px] md:min-h-[410px] xl:min-h-[430px]">
+
+                        <div class="relative w-full h-[360px] sm:h-[390px] md:h-[410px] xl:h-[430px] overflow-hidden">
+
+                            <img
+                                src="src/Asset/img/pi1.jpg"
+                                class="w-full h-full object-cover object-center"
+                                alt="Lexi"
+                                loading="lazy"
+                                decoding="async"
+                            >
+
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
+
+                        </div>
+
+
+                        <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 pt-24 sm:pt-28">
+
+                            <div class="flex items-end justify-between gap-3 sm:gap-4">
+
+                                <div class="min-w-0">
+
+                                    <span class="text-lg sm:text-xl md:text-2xl text-orange-300 font-[font2]">
+                                        New
+                                    </span>
+
+                                    <h2 class="text-white text-2xl sm:text-3xl font-bold mt-1 font-[font3] truncate">
+                                        Lexi
+                                    </h2>
+
+                                    <p class="text-white/60 text-base sm:text-lg md:text-xl mt-1 truncate">
+                                        Divaneh
+                                    </p>
+
+                                </div>
+
+
+                                <div class="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/[0.08] border border-white/15 flex items-center justify-center text-white/80">
+
+                                    <svg
+                                        class="w-5 h-5 translate-x-[-1px]"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="1.8">
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.29-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"
+                                        />
+
+                                    </svg>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
 
             </div>
 
+            <div class="swiper-pagination"></div>
 
         </div>
 
-
     </div>
-
-
-    <!-- / slider_Sounds / -->
-
-
-<div class="mode_Vibe flex flex-wrap px-2">
-
-
-        <div class="title1 pl-2 font-[font4] font-bold capitalize text-xl xl:text-2xl pr-5 py-5 w-full text-white">
-
-            Categories
-
-        </div>
-
-
- <div class="cardmode *:cursor-pointer flex justify-evenly flex-nowrap gap-5 overflow-x-auto w-full py-5 scrollbar-none">
-
-
-    <div data-status="100" class="w-[150px] h-[140px] rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
-
-    <svg
-    width="70"
-    height="70"
-    viewBox="0 0 70 70"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
->
-    <defs>
-        <linearGradient id="popGradient" x1="15" y1="10" x2="55" y2="60">
-            <stop stop-color="#35CFFF"/>
-            <stop offset="1" stop-color="#FF3D9A"/>
-        </linearGradient>
-
-        <filter id="popGlow">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
-    </defs>
-
-    <g
-        stroke="url(#popGradient)"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        filter="url(#popGlow)"
-    >
-        <path d="M14 35C14 22.85 23.85 13 36 13C48.15 13 58 22.85 58 35"/>
-
-        <path d="M20 35V29C20 25.13 23.13 22 27 22"/>
-        <path d="M52 35V29C52 25.13 48.87 22 45 22"/>
-
-        <rect x="15" y="34" width="10" height="18" rx="5"/>
-        <rect x="47" y="34" width="10" height="18" rx="5"/>
-
-        <path d="M25 43H28C30.76 43 33 45.24 33 48"/>
-        <path d="M47 43H44C41.24 43 39 45.24 39 48"/>
-    </g>
-</svg>
-
-     <span class="text-white text-sm mt-3 capitalize font-[font2]">
-       pop
-     </span>
-
-     <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
-        10 sound
-      </span>
-
-    </div>
-
-
-    <div data-status="200" class="w-[150px] h-[140px] rounded-2xl bg-[#11111d] border border-white/5 hidden lg:flex flex-col items-center justify-center">
-
-        <svg
-    width="70"
-    height="70"
-    viewBox="0 0 70 70"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
->
-    <defs>
-        <linearGradient id="rapGradient" x1="20" y1="12" x2="50" y2="62">
-            <stop stop-color="#FF62C0"/>
-            <stop offset="1" stop-color="#D52BFF"/>
-        </linearGradient>
-
-        <filter id="rapGlow">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
-    </defs>
-
-    <g
-        stroke="url(#rapGradient)"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        filter="url(#rapGlow)"
-    >
-        <rect
-            x="25"
-            y="12"
-            width="20"
-            height="34"
-            rx="10"
-            transform="rotate(18 35 29)"
-        />
-
-        <path d="M21 30L45 38"/>
-        <path d="M23 25L47 33"/>
-        <path d="M26 20L49 28"/>
-
-        <path d="M28 43C31 48 36 51 42 50"/>
-        <path d="M42 50L36 63"/>
-        <path d="M33 63H40"/>
-    </g>
-</svg>
-
-       <span class="text-white text-sm mt-3 capitalize font-[font2]">
-       rap
-     </span>
-
-     <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
-        5 sound
-      </span>
-
-    </div>
-
-
-    <div data-status="300" class="w-[150px] h-[140px] rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
-
-        <svg
-    width="70"
-    height="70"
-    viewBox="0 0 70 70"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
->
-    <defs>
-        <linearGradient id="nostalgiaGradient" x1="10" y1="15" x2="60" y2="55">
-            <stop stop-color="#FF72D0"/>
-            <stop offset="1" stop-color="#D934FF"/>
-        </linearGradient>
-
-        <filter id="nostalgiaGlow">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
-    </defs>
-
-    <g
-        stroke="url(#nostalgiaGradient)"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        filter="url(#nostalgiaGlow)"
-    >
-        <rect x="10" y="18" width="50" height="34" rx="3"/>
-
-        <circle cx="23" cy="35" r="7"/>
-        <circle cx="47" cy="35" r="7"/>
-
-        <path d="M23 28V42"/>
-        <path d="M47 28V42"/>
-
-        <path d="M30 29H40"/>
-        <path d="M30 41H40"/>
-
-        <path d="M16 48H54"/>
-    </g>
-</svg>
-
-       <span class="text-white text-sm mt-3 capitalize font-[font2]">
-       nostalgia
-     </span>
-
-     <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
-        10 sound
-      </span>
-
-    </div>
-
-
-    <div data-status="400" class="w-[150px] h-[140px] rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
-
-        <svg
-    width="70"
-    height="70"
-    viewBox="0 0 70 70"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
->
-    <defs>
-        <linearGradient id="happyGradient" x1="15" y1="10" x2="55" y2="60">
-            <stop stop-color="#FFF600"/>
-            <stop offset="1" stop-color="#FFB800"/>
-        </linearGradient>
-
-        <filter id="happyGlow">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
-    </defs>
-
-    <g
-        stroke="url(#happyGradient)"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        filter="url(#happyGlow)"
-    >
-        <circle cx="35" cy="35" r="22"/>
-
-        <circle cx="27" cy="29" r="1.5" fill="#FFF600"/>
-        <circle cx="43" cy="29" r="1.5" fill="#FFF600"/>
-
-        <path d="M25 39C27.5 44 31 46 35 46C39 46 42.5 44 45 39"/>
-    </g>
-</svg>
-
-       <span class="text-white text-sm mt-3 capitalize font-[font2]">
-       happy
-     </span>
-
-     <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
-        150 sound
-      </span>
-
-    </div>
-
-
-    <div data-status="500" class="w-[150px] h-[140px] rounded-2xl bg-[#11111d] border border-white/5 hidden md:flex flex-col items-center justify-center">
-
-        <svg
-    width="70"
-    height="70"
-    viewBox="0 0 70 70"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
->
-    <defs>
-        <linearGradient id="sadGradient" x1="15" y1="15" x2="55" y2="60">
-            <stop stop-color="#36CFFF"/>
-            <stop offset="1" stop-color="#197BFF"/>
-        </linearGradient>
-
-        <filter id="sadGlow">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
-    </defs>
-
-    <g
-        stroke="url(#sadGradient)"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        filter="url(#sadGlow)"
-    >
-        <path
-            d="M17 38C17 32.48 21.48 28 27 28C28.4 22.18 33.6 18 39.5 18C46.4 18 52 23.6 52 30.5C52 30.9 52 31.3 51.9 31.7C55.5 32.3 58 35.4 58 39C58 43 54.8 46 50.8 46H25C20.6 46 17 42.4 17 38Z"
-        />
-
-        <path d="M25 51L22 57"/>
-        <path d="M35 51L32 57"/>
-        <path d="M45 51L42 57"/>
-        <path d="M54 51L51 57"/>
-    </g>
-</svg>
-
-       <span class="text-white text-sm mt-3 capitalize font-[font2]">
-       sad
-     </span>
-
-     <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
-        110 sound
-      </span>
-
-    </div>
-
-
-    <div data-status="600" class="w-[150px] h-[140px] rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
-
-            <svg
-    width="70"
-    height="70"
-    viewBox="0 0 70 70"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
->
-    <defs>
-        <filter id="sportGlow">
-            <feGaussianBlur stdDeviation="2" result="blur"/>
-            <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
-    </defs>
-
-    <g
-        stroke="#F5F5F5"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        filter="url(#sportGlow)"
-    >
-
-        <circle
-            cx="35"
-            cy="35"
-            r="23"
-            fill="#11111d"
-        />
-
-        <path
-            d="M35 23L27 28L30 37H40L43 28L35 23Z"
-            fill="#F5F5F5"
-        />
-
-        <path
-            d="M27 28L20 24"
-        />
-
-        <path
-            d="M43 28L50 24"
-        />
-
-        <path
-            d="M30 37L24 45"
-        />
-
-        <path
-            d="M40 37L46 45"
-        />
-
-        <path
-            d="M24 45L29 54"
-        />
-
-        <path
-            d="M46 45L41 54"
-        />
-
-        <path
-            d="M29 54L35 58L41 54"
-        />
-
-        <path
-            d="M20 24L17 32L24 45"
-        />
-
-        <path
-            d="M50 24L53 32L46 45"
-        />
-
-        <path
-            d="M35 23L35 16"
-        />
-
-        <path
-            d="M20 24L25 18"
-        />
-
-        <path
-            d="M50 24L45 18"
-        />
-
-    </g>
-
-    <path
-        d="M35 23L27 28L30 37H40L43 28L35 23Z"
-        fill="#15151F"
-        stroke="#FFFFFF"
-        stroke-width="1.5"
-        stroke-linejoin="round"
-    />
-
-</svg>
-
-       <span class="text-white text-sm mt-3 capitalize font-[font2]">
-       sport
-     </span>
-
-     <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
-        60 sound
-      </span>
-
-    </div>
-
-
 
 </div>
 
+<!-- / slider_Sounds / -->
 
-    <!-- / mode_Vibe / -->
+
+<!-- / mode_Vibe / -->
+
+<div class="mode_Vibe flex flex-wrap px-2">
+
+    <div class="title1 pl-2 font-[font4] font-bold capitalize text-xl xl:text-2xl pr-5 py-5 w-full text-white">
+        Categories
+    </div>
 
 
+    <div class="cardmode *:cursor-pointer flex justify-evenly flex-nowrap gap-5 overflow-x-auto w-full py-5 scrollbar-none">
+
+
+        <!-- pop -->
+
+        <div
+            data-status="100"
+            class="w-[150px] h-[140px] shrink-0 rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
+
+            <svg
+                width="70"
+                height="70"
+                viewBox="0 0 70 70"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <defs>
+
+                    <linearGradient id="popGradient" x1="15" y1="10" x2="55" y2="60">
+
+                        <stop stop-color="#35CFFF"/>
+                        <stop offset="1" stop-color="#FF3D9A"/>
+
+                    </linearGradient>
+
+                </defs>
+
+                <g
+                    stroke="url(#popGradient)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <path d="M14 35C14 22.85 23.85 13 36 13C48.15 13 58 22.85 58 35"/>
+                    <path d="M20 35V29C20 25.13 23.13 22 27 22"/>
+                    <path d="M52 35V29C52 25.13 48.87 22 45 22"/>
+                    <rect x="15" y="34" width="10" height="18" rx="5"/>
+                    <rect x="47" y="34" width="10" height="18" rx="5"/>
+                    <path d="M25 43H28C30.76 43 33 45.24 33 48"/>
+                    <path d="M47 43H44C41.24 43 39 45.24 39 48"/>
+
+                </g>
+
+            </svg>
+
+            <span class="text-white text-sm mt-3 capitalize font-[font2]">
+                pop
+            </span>
+
+            <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
+                10 sound
+            </span>
+
+        </div>
+
+
+        <!-- rap -->
+
+        <div
+            data-status="200"
+            class="w-[150px] h-[140px] shrink-0 rounded-2xl bg-[#11111d] border border-white/5 hidden lg:flex flex-col items-center justify-center">
+
+            <svg
+                width="70"
+                height="70"
+                viewBox="0 0 70 70"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <defs>
+
+                    <linearGradient id="rapGradient" x1="20" y1="12" x2="50" y2="62">
+
+                        <stop stop-color="#FF62C0"/>
+                        <stop offset="1" stop-color="#D52BFF"/>
+
+                    </linearGradient>
+
+                </defs>
+
+                <g
+                    stroke="url(#rapGradient)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <rect
+                        x="25"
+                        y="12"
+                        width="20"
+                        height="34"
+                        rx="10"
+                        transform="rotate(18 35 29)"
+                    />
+
+                    <path d="M21 30L45 38"/>
+                    <path d="M23 25L47 33"/>
+                    <path d="M26 20L49 28"/>
+                    <path d="M28 43C31 48 36 51 42 50"/>
+                    <path d="M42 50L36 63"/>
+                    <path d="M33 63H40"/>
+
+                </g>
+
+            </svg>
+
+            <span class="text-white text-sm mt-3 capitalize font-[font2]">
+                rap
+            </span>
+
+            <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
+                5 sound
+            </span>
+
+        </div>
+
+
+        <!-- nostalgia -->
+
+        <div
+            data-status="300"
+            class="w-[150px] h-[140px] shrink-0 rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
+
+            <svg
+                width="70"
+                height="70"
+                viewBox="0 0 70 70"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <defs>
+
+                    <linearGradient id="nostalgiaGradient" x1="10" y1="15" x2="60" y2="55">
+
+                        <stop stop-color="#FF72D0"/>
+                        <stop offset="1" stop-color="#D934FF"/>
+
+                    </linearGradient>
+
+                </defs>
+
+                <g
+                    stroke="url(#nostalgiaGradient)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <rect x="10" y="18" width="50" height="34" rx="3"/>
+                    <circle cx="23" cy="35" r="7"/>
+                    <circle cx="47" cy="35" r="7"/>
+                    <path d="M23 28V42"/>
+                    <path d="M47 28V42"/>
+                    <path d="M30 29H40"/>
+                    <path d="M30 41H40"/>
+                    <path d="M16 48H54"/>
+
+                </g>
+
+            </svg>
+
+            <span class="text-white text-sm mt-3 capitalize font-[font2]">
+                nostalgia
+            </span>
+
+            <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
+                10 sound
+            </span>
+
+        </div>
+
+
+        <!-- happy -->
+
+        <div
+            data-status="400"
+            class="w-[150px] h-[140px] shrink-0 rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
+
+            <svg
+                width="70"
+                height="70"
+                viewBox="0 0 70 70"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <defs>
+
+                    <linearGradient id="happyGradient" x1="15" y1="10" x2="55" y2="60">
+
+                        <stop stop-color="#FFF600"/>
+                        <stop offset="1" stop-color="#FFB800"/>
+
+                    </linearGradient>
+
+                </defs>
+
+                <g
+                    stroke="url(#happyGradient)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle cx="35" cy="35" r="22"/>
+
+                    <circle
+                        cx="27"
+                        cy="29"
+                        r="1.5"
+                        fill="#FFF600"
+                    />
+
+                    <circle
+                        cx="43"
+                        cy="29"
+                        r="1.5"
+                        fill="#FFF600"
+                    />
+
+                    <path d="M25 39C27.5 44 31 46 35 46C39 46 42.5 44 45 39"/>
+
+                </g>
+
+            </svg>
+
+            <span class="text-white text-sm mt-3 capitalize font-[font2]">
+                happy
+            </span>
+
+            <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
+                150 sound
+            </span>
+
+        </div>
+
+
+        <!-- sad -->
+
+        <div
+            data-status="500"
+            class="w-[150px] h-[140px] shrink-0 rounded-2xl bg-[#11111d] border border-white/5 hidden md:flex flex-col items-center justify-center">
+
+            <svg
+                width="70"
+                height="70"
+                viewBox="0 0 70 70"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <defs>
+
+                    <linearGradient id="sadGradient" x1="15" y1="15" x2="55" y2="60">
+
+                        <stop stop-color="#36CFFF"/>
+                        <stop offset="1" stop-color="#197BFF"/>
+
+                    </linearGradient>
+
+                </defs>
+
+                <g
+                    stroke="url(#sadGradient)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <path
+                        d="M17 38C17 32.48 21.48 28 27 28C28.4 22.18 33.6 18 39.5 18C46.4 18 52 23.6 52 30.5C52 30.9 52 31.3 51.9 31.7C55.5 32.3 58 35.4 58 39C58 43 54.8 46 50.8 46H25C20.6 46 17 42.4 17 38Z"
+                    />
+
+                    <path d="M25 51L22 57"/>
+                    <path d="M35 51L32 57"/>
+                    <path d="M45 51L42 57"/>
+                    <path d="M54 51L51 57"/>
+
+                </g>
+
+            </svg>
+
+            <span class="text-white text-sm mt-3 capitalize font-[font2]">
+                sad
+            </span>
+
+            <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
+                110 sound
+            </span>
+
+        </div>
+
+
+        <!-- sport -->
+
+        <div
+            data-status="600"
+            class="w-[150px] h-[140px] shrink-0 rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
+
+            <svg
+                width="70"
+                height="70"
+                viewBox="0 0 70 70"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <g
+                    stroke="#F5F5F5"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle
+                        cx="35"
+                        cy="35"
+                        r="23"
+                        fill="#11111d"
+                    />
+
+                    <path
+                        d="M35 23L27 28L30 37H40L43 28L35 23Z"
+                        fill="#F5F5F5"
+                    />
+
+                    <path d="M27 28L20 24"/>
+                    <path d="M43 28L50 24"/>
+                    <path d="M30 37L24 45"/>
+                    <path d="M40 37L46 45"/>
+                    <path d="M24 45L29 54"/>
+                    <path d="M46 45L41 54"/>
+                    <path d="M29 54L35 58L41 54"/>
+                    <path d="M20 24L17 32L24 45"/>
+                    <path d="M50 24L53 32L46 45"/>
+                    <path d="M35 23L35 16"/>
+                    <path d="M20 24L25 18"/>
+                    <path d="M50 24L45 18"/>
+
+                </g>
+
+                <path
+                    d="M35 23L27 28L30 37H40L43 28L35 23Z"
+                    fill="#15151F"
+                    stroke="#FFFFFF"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                />
+
+            </svg>
+
+            <span class="text-white text-sm mt-3 capitalize font-[font2]">
+                sport
+            </span>
+
+            <span class="text-gray-500 text-xs mt-1 capitalize font-[font1]">
+                60 sound
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- / mode_Vibe / -->
 
 
 <div class="trending_Artist w-full flex flex-wrap justify-between gap-2 lg:gap-8 my-10 lg:my-20">
 
-    <!-- trend / / / -->
 
-    <div class="trend w-full lg:w-[40%]">
+<!-- trend / / / -->
 
-       <div class="title_trend pl-2 w-full text-white flex pr-2 text-lg capitalize font-bold lg:text-2xl font-[font4]">
+<div class="trend w-full lg:w-[40%]">
+
+    <div class="title_trend pl-2 w-full text-white flex pr-2 text-lg capitalize font-bold lg:text-2xl font-[font4]">
 
         trending now
 
-     <img src="src/Asset/img/wired-flat-2550-logo-tinder-hover-flame.gif" alt="" class="w-7 h-7 ml-2 object-contain">
+        <img
+            src="src/Asset/img/wired-flat-2550-logo-tinder-hover-flame.gif"
+            alt=""
+            class="w-7 h-7 ml-2 object-contain"
+        >
 
     </div>
 
-        <!-- create box trend / /   -->
-
-        <div class="trendall my-5 lg:my-2 w-full flex flex-wrap">
-
-        </div>
-
+    <div class="trendall my-5 lg:my-2 w-full flex flex-wrap">
     </div>
-
-    <!-- trend / / / -->
-
-
-    <!-- art   / /   /   -->
-
-    <div class="art w-full lg:w-[50%] flex flex-wrap content-start">
-
-        <div class="titleart w-full pb-0">
-
-            <h3 class="capitalize my-4 lg:my-3 font-[font4] font-bold text-lg xl:text-2xl text-white px-2">
-
-                top artist
-
-            </h3>
-
-        </div>
-
-        <div class="aboutart w-full flex flex-wrap justify-start gap-4 px-2 sm:gap-5 md:gap-7 lg:gap-8 overflow-x-auto lg:overflow-x-visible scrollbar-none">
-
-        </div>
-
-    </div>
-
-    <!-- art  // / /  / -->
 
 </div>
 
-
-    <!-- / trending_Artist / -->
-
+<!-- trend / / / -->
 
 
+<!-- art / / / -->
 
+<div class="art w-full lg:w-[50%] flex flex-wrap content-start">
 
+    <div class="titleart w-full pb-0">
 
-
-    <!-- / radio javan idea /  -->
-
-    <div class="javanidea w-full flex-wrap *:w-full ">
-
-        <div class="titlejavan">
-            <h4 class="font-font4 font-bold capitalize text-md lg:text-2xl text-white">just released</h4>
-        </div>
-
-
-       <div class="cardjavan my-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-3 gap-y-6">
-
-        </div>
+        <h3 class="capitalize my-4 lg:my-3 font-[font4] font-bold text-lg xl:text-2xl text-white px-2">
+            top artist
+        </h3>
 
     </div>
 
-    <!-- / radio javan idea /  -->
+    <div class="aboutart w-full flex flex-wrap justify-start gap-4 px-2 sm:gap-5 md:gap-7 lg:gap-8 overflow-x-auto lg:overflow-x-visible scrollbar-none">
+    </div>
 
-    <!-- //////////////////////////// -->
+</div>
+
+<!-- art // / /  / -->
+
+</div>
+
+<!-- / trending_Artist / -->
 
 
+<!-- / radio javan idea / -->
+
+<div class="javanidea w-full flex-wrap *:w-full">
+
+    <div class="titlejavan">
+
+        <h4 class="font-font4 font-bold capitalize text-md lg:text-2xl text-white">
+            just released
+        </h4>
+
+    </div>
 
 
+    <div class="cardjavan my-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-3 gap-y-6">
+    </div>
+
+</div>
+
+<!-- / radio javan idea / -->
 
 
-
-<!--  - -  -  --  -  - -  -  - -  - -  -->
+<!-- //////////////////////////// -->
 
 <!-- reels video -->
 
-<div class="reels flex flex-wrap *:w-full *:text-white my-10">
+<div class="reels flex flex-wrap *:w-full *:text-white my-10 mb-20">
 
     <div class="titlereels">
 
-        <h4 class="capitalize xl:pl-5 text-center lg:text-left font-font4 font-bold text-2xl lg:text-3xl">reels</h4>
+        <h4 class="capitalize xl:pl-5 text-center lg:text-left font-font4 font-bold text-2xl lg:text-3xl">
+            reels
+        </h4>
 
     </div>
+
 
     <!-- video reels -->
 
     <div class="boxvideo w-full flex flex-wrap justify-center gap-5 lg:gap-8 my-10">
 
+
         <div class="cardreels hidden xl:flex w-full sm:w-[300px] lg:w-[300px] h-[400px] relative overflow-hidden rounded-2xl">
 
-            <video src="src/Asset/video/Radio Javan (2).mp4" autoplay loop muted playsinline class="w-full h-full object-cover cursor-pointer"></video>
+            <video
+                src="src/Asset/video/Radio Javan (2).mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                class="w-full h-full object-cover cursor-pointer"
+            ></video>
 
-            <span class="absolute text-md text-xl font-font1 font-bold bottom-0 w-full h-auto p-3 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center text-white capitalize text-center">ki behtar az to</span>
+            <span class="absolute text-md text-xl font-font1 font-bold bottom-0 w-full h-auto p-3 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center text-white capitalize text-center">
+
+                ki behtar az to
+
+            </span>
 
         </div>
 
 
         <div class="cardreels w-full sm:w-[300px] lg:w-[300px] h-[400px] relative overflow-hidden rounded-2xl">
 
-            <video src="src/Asset/video/Radio Javan.mp4" autoplay loop muted playsinline class="w-full h-full object-cover cursor-pointer"></video>
+            <video
+                src="src/Asset/video/Radio Javan.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                class="w-full h-full object-cover cursor-pointer"
+            ></video>
 
-            <span class="absolute text-md text-xl font-font1 font-bold bottom-0 w-full h-auto p-3 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center text-white capitalize text-center">ممنون</span>
+            <span class="absolute text-md text-xl font-font1 font-bold bottom-0 w-full h-auto p-3 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center text-white capitalize text-center">
+
+                ممنون
+
+            </span>
 
         </div>
 
 
         <div class="cardreels w-full sm:w-[300px] lg:w-[300px] h-[400px] relative overflow-hidden rounded-2xl">
 
-            <video src="src/Asset/video/Radio Javan (1).mp4" autoplay loop muted playsinline class="w-full h-full object-cover cursor-pointer"></video>
+            <video
+                src="src/Asset/video/Radio Javan (1).mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                class="w-full h-full object-cover cursor-pointer"
+            ></video>
 
-            <span class="absolute text-md text-xl font-font1 font-bold bottom-0 w-full h-auto p-3 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center text-white capitalize text-center">nemire yadam</span>
+            <span class="absolute text-md text-xl font-font1 font-bold bottom-0 w-full h-auto p-3 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center text-white capitalize text-center">
+
+                nemire yadam
+
+            </span>
 
         </div>
+
 
     </div>
 
@@ -1168,45 +1316,239 @@
 
 </div>
 
-<!-- reels video-->
-
-
-<!--  - -  -  --  -  - -  -  - -  - -  -->
-
-
-
-
-
-
-    <div class="music_Player"></div>
-
-
-    <!-- / music_Player / -->
+<!-- reels video -->
 
 
 </div>
 
+<!-- / center main org result / -->
+
+
+
+
+
 
 <!-- /////////////////////// -->
 
+<!-- right menu -->
 
-<div class="right_sound w-full xl:w-[25%] hidden xl:flex h-full"></div>
+<div class="right_sound mt-18 pl-5 hidden xl:flex xl:w-[25%] xl:basis-[25%] min-w-0 shrink-0 h-screen self-start flex-col">
 
+
+    <div class="titlepopular mb-4 w-full text-white">
+
+        <h4 class="font-[font4] font-bold capitalize text-2xl">
+            popular playlist
+        </h4>
+
+    </div>
+
+
+    <!-- cards /  /  / -->
+
+    <div class="cardpopular w-full max-h-[450px] flex flex-col gap-3 overflow-hidden">
+    </div>
+
+    <!-- cards / / -->
+
+
+    <!-- premium -->
+
+    <div
+        id="premiumBox"
+        class="w-[220px] h-[220px] mt-22 ml-10">
+
+        <div
+            class="relative w-full h-full overflow-hidden rounded-[24px] border border-violet-400/20 bg-gradient-to-br from-[#21183b] via-[#151121] to-[#0c0b12] p-4">
+
+            <div
+                class="relative z-10 flex items-center justify-center">
+
+                <div
+                    class="w-11 h-11 rounded-xl bg-violet-500/10 border border-violet-400/20 flex items-center justify-center">
+
+                    <svg
+                        class="w-6 h-6 text-violet-300"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="1.8">
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 3l1.9 5.8h6.1l-4.9 3.6 1.9 5.8-5-3.6 1.9-5.8L4 8.8h6.1L12 3Z"
+                        />
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+
+            <div class="relative z-10 text-center mt-3">
+
+                <h3
+                    id="premiumTitle"
+                    class="text-white text-lg font-bold capitalize font-[font4]">
+
+                    unlock premium
+
+                </h3>
+
+
+                <p
+                    id="premiumDescription"
+                    class="text-white/40 text-[10px] leading-4 mt-1 font-[font1]">
+
+                    enjoy unlimited music and exclusive premium songs.
+
+                </p>
+
+            </div>
+
+
+            <button
+                id="premiumLoginBtn"
+                type="button"
+                class="relative z-10 mt-3 w-full h-9 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white text-[11px] font-bold capitalize font-[font2] shadow-[0_5px_15px_rgba(139,92,246,0.18)] hover:shadow-[0_5px_18px_rgba(139,92,246,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer">
+
+                get premium
+
+            </button>
+
+
+            <div class="relative z-10 flex items-center justify-center gap-1.5 mt-2">
+
+                <svg
+                    class="w-3 h-3 text-white/25"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.8">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 15v2m-6 3h12a2 2 0 0 0 2-2V8a8 8 0 1 0-16 0v10a2 2 0 0 0 2 2Z"
+                    />
+
+                </svg>
+
+
+                <span
+                    class="text-[8px] text-white/25 font-[font1]">
+
+                    premium access required
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- premium -->
+
+</div>
+
+<!-- right menu -->
 
 <!-- //////////////////////////// -->
+
+
+
 
 
 <!-- / phone bottom menu / -->
 
 
-<div class="phone_fix flex w-full fixed bottom-0 left-0 z-[9999] py-10 bg-black md:hidden"></div>
+<div class="phone_fix flex z-[1100] w-full md:hidden bg-[#111116]/95 backdrop-blur-xl border-t border-white/10 fixed bottom-0 left-0 h-[70px] px-6">
+
+    <div class="w-full flex items-center justify-around">
+
+        <div
+            id="home"
+            class="w-12 h-12 flex items-center justify-center rounded-xl text-white/50 hover:text-white hover:bg-white/5 transition-all cursor-pointer">
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-6 h-6">
+
+                <path d="m3 10 9-7 9 7"/>
+                <path d="M5 9v11h14V9"/>
+                <path d="M9 20v-6h6v6"/>
+
+            </svg>
+
+        </div>
+
+
+        <div
+            id="search"
+            class="w-12 h-12 flex items-center justify-center rounded-xl text-white/50 hover:text-white hover:bg-white/5 transition-all cursor-pointer">
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-6 h-6">
+
+                <circle cx="11" cy="11" r="7"/>
+                <path d="m20 20-4-4"/>
+
+            </svg>
+
+        </div>
+
+
+        <div
+            id="love"
+            class="w-12 h-12 flex items-center justify-center rounded-xl text-white/50 hover:text-white hover:bg-white/5 transition-all cursor-pointer">
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-6 h-6">
+
+                <path d="M20.8 8.6c0 5.5-8.8 10.4-8.8 10.4S3.2 14.1 3.2 8.6A4.6 4.6 0 0 1 12 6.1a4.6 4.6 0 0 1 8.8 2.5Z"/>
+
+            </svg>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- / phone bottom menu / -->
 
 
 </section>
 
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
 <script src="src/js/webapp.js"></script>
+
 
 </body>
 

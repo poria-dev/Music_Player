@@ -532,3 +532,109 @@ javan.forEach((val) => {
 
 // create javan released  / / / / 
 
+
+
+
+
+// switch color box menu 
+
+
+const menuItem = document.querySelectorAll(".menuItem")
+const menuActive = document.getElementById("menuActive")
+const inp = document.getElementById("inp")
+menuItem.forEach((val) => {
+
+    val.addEventListener("click", () => {
+
+        let x = val.offsetTop
+
+        menuActive.style.top = `${x}px`
+
+        if (val.getAttribute("data-ser") == "on") {
+
+            inp.focus()
+
+        }
+
+
+    })
+
+})
+
+
+
+
+// popular playlist /  / /  /  /  
+
+const cardpopular = document.querySelector(".cardpopular")
+
+const popular = [
+
+    {
+        cover: "src/Asset/img/popularplaylist/0c697696335e7a1.jpeg",
+        title: "emotional",
+        counter: "10 sound",
+        id:"emotional"
+
+    },
+    {
+        cover: "src/Asset/img/popularplaylist/e74c9ce3e3a63e7.jpeg",
+        title: "today",
+        counter: "13 sound",
+        id:"today"
+
+
+    },
+    {
+        cover: "src/Asset/img/popularplaylist/ec2f18bcf8eaa48.jpeg",
+        title: "lovely",
+        counter: "7 sound",
+        id:"lovely"
+
+
+    },
+
+]
+
+popular.forEach((val) => {
+
+    cardpopular.innerHTML += `
+
+        <div class="cards w-full h-1/3 flex items-center gap-2 my-2  text-white">
+
+            <figure id="${val.id}" class="w-[30%] cursor-pointer h-full shrink-0">
+                <img src="${val.cover}" alt="" class="w-full h-full object-cover rounded-md">
+            </figure>
+
+            <div class="px-2 w-[70%] min-w-0">
+
+                <h6 class="text-2xl capitalize font-bold font-[font4]">${val.title}</h6>
+
+                <span class="text-md opacity-70 font-bold font-font3">${val.counter}</span>
+
+            </div>
+
+        </div>
+
+    `
+
+})
+// popular playlist /  / /  /  /  
+
+
+
+
+
+// search in phone
+
+
+const search = document.getElementById("search")
+
+search.addEventListener("click" , ()=>{
+
+    
+
+})
+
+
+// search in phone
