@@ -234,7 +234,7 @@ arti.forEach((val) => {
 
     aboutart.innerHTML += `
 
-    <figure id="${val.id}" class="w-[70px] sm:w-[82px] md:w-[92px] lg:w-[100px] shrink-0 cursor-pointer flex flex-col items-center">
+    <figure id="${val.id}" class="w-[80px] sm:w-[82px] md:w-[92px] lg:w-[100px] shrink-0 cursor-pointer flex flex-col items-center last:hidden lg:last:flex">
 
         <img
 
@@ -278,7 +278,7 @@ const trend = [
 
         music: "addi nist",
 
-        time : "2:26"
+        time: "2:26"
 
     },
 
@@ -294,7 +294,7 @@ const trend = [
 
         music: "Zendegie Adi",
 
-        time : "3:58"
+        time: "3:58"
 
     },
 
@@ -310,7 +310,7 @@ const trend = [
 
         music: "sayeh",
 
-        time : "4:39"
+        time: "4:39"
 
     },
 
@@ -326,7 +326,7 @@ const trend = [
 
         music: "gol sangam",
 
-        time : "2:58"
+        time: "2:58"
 
     },
 
@@ -338,7 +338,7 @@ const trend = [
 
 trend.forEach((val) => {
 
-trendall.innerHTML += `
+    trendall.innerHTML += `
 
     <div class="boxstrend w-full my-1.5 mx-2 md:mx-0">
 
@@ -413,3 +413,122 @@ trendall.innerHTML += `
 `
 
 })
+
+
+
+
+// create javan released  / / / / 
+
+const cardjavan = document.querySelector(".cardjavan")
+const javan = [
+
+    {
+
+        sound: "https://dl.rozmusic.com/Music/1405/05/27/Naser%20Zeynali%20-%20Daram%20Adat%20Mikonam%20%28128%29.mp3",
+        cover: "src/Asset/img/javan/Naser-Zeynali-Daram-Adat-Mikonam.jpg",
+        title: "daram adat mikonam",
+        artist: "naser zeynali"
+
+
+    },
+
+    {
+
+        sound: "https://irsv.upmusics.com/AliBZ/Morteza%20Pashaei%20%7C%20Yeki%20Hast%20(320).mp3",
+        cover: "src/Asset/img/javan/img1.jpg",
+        title: "yeki hast",
+        artist: "morteza pashaei"
+
+
+    },
+
+    {
+
+        sound: "https://irsv.upmusics.com/singletracks/2026/08/Arshiyas%20-%20Adi%20Ni%20UpMusics.mp3",
+        cover: "src/Asset/img/javan/img2.jpg",
+        title: "adi ni",
+        artist: "arshiyas"
+
+
+    },
+
+    {
+
+        sound: "https://irsv.upmusics.com/singletracks/2026/08/Erfan%20Abra%20-%20Belakhare%20UpMusics_2.mp3",
+        cover: "src/Asset/img/javan/img3.jpg",
+        title: "Belakhare ",
+        artist: "erfan abra"
+
+
+    },
+
+    {
+
+        sound: "https://dl.remiixbaz.com/music/siavash-ghomeyshi/Siavash%20Ghomeyshi%20-%20Jaziireh%20%28Remixbaz.com%29%20%28320%29.mp3",
+        cover: "src/Asset/img/javan/jazireh.jfif",
+        title: "jazireh",
+        artist: "siavash"
+
+
+    },
+
+]
+
+javan.forEach((val) => {
+
+    cardjavan.innerHTML += `
+    
+ <div class="justreleased w-full rounded-lg *:w-full *:text-white capitalize">
+
+    <figure class="mb-4 cursor-pointer overflow-hidden">
+        <img
+            src="${val.cover}"
+            alt=""
+            class="w-full aspect-square object-cover rounded-lg"
+        >
+    </figure>
+
+    <div class="flex text-sm lg:text-md">
+
+        <h5 class="w-[80%] font-[font2] font-bold truncate">
+            ${val.title}
+        </h5>
+
+        <span class="w-[20%] flex justify-end items-center">
+
+            <div class="flex items-end gap-[2px] h-5 group cursor-pointer">
+
+                <span class="w-[2px] h-2 bg-white rounded-full transition-all duration-300 group-hover:h-4 animate-pulse"></span>
+
+                <span class="w-[2px] h-4 bg-white rounded-full transition-all duration-300 group-hover:h-2 animate-pulse"></span>
+
+                <span class="w-[2px] h-3 bg-white rounded-full transition-all duration-300 group-hover:h-5 animate-pulse"></span>
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                    class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:scale-110"
+                >
+                    <path d="M8 4.5v11.2a3.5 3.5 0 1 0 1.5 3.05V9.2l8.5-2v7.5a3.5 3.5 0 1 0 1.5 3.05V4L8 6.2V4.5Z"/>
+                </svg>
+
+            </div>
+
+        </span>
+
+    </div>
+
+    <h6 class="opacity-50 font-[font2] truncate">
+        ${val.artist}
+    </h6>
+
+</div>
+    
+    `
+
+})
+
+
+// create javan released  / / / / 
+
