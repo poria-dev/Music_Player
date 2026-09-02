@@ -478,7 +478,7 @@ javan.forEach((val) => {
 
     cardjavan.innerHTML += `
     
- <div class="justreleased w-full rounded-lg *:w-full *:text-white capitalize">
+ <div class="justreleased w-full rounded-lg px-4 lg:px-1 *:w-full *:text-white capitalize">
 
     <figure class="mb-4 cursor-pointer overflow-hidden">
         <img
@@ -541,7 +541,7 @@ javan.forEach((val) => {
 
 const menuItem = document.querySelectorAll(".menuItem")
 const menuActive = document.getElementById("menuActive")
-const inp = document.getElementById("inp")
+const searchBox = document.getElementById("searchBox")
 menuItem.forEach((val) => {
 
     val.addEventListener("click", () => {
@@ -550,10 +550,15 @@ menuItem.forEach((val) => {
 
         menuActive.style.top = `${x}px`
 
+
         if (val.getAttribute("data-ser") == "on") {
 
-            inp.focus()
+            searchBox.classList.remove("hidden")
+            searchBox.classList.add("flex")
 
+        } else {
+            searchBox.classList.remove("flex")
+            searchBox.classList.add("hidden")
         }
 
 
@@ -574,14 +579,14 @@ const popular = [
         cover: "src/Asset/img/popularplaylist/0c697696335e7a1.jpeg",
         title: "emotional",
         counter: "10 sound",
-        id:"emotional"
+        id: "emotional"
 
     },
     {
         cover: "src/Asset/img/popularplaylist/e74c9ce3e3a63e7.jpeg",
         title: "today",
         counter: "13 sound",
-        id:"today"
+        id: "today"
 
 
     },
@@ -589,7 +594,7 @@ const popular = [
         cover: "src/Asset/img/popularplaylist/ec2f18bcf8eaa48.jpeg",
         title: "lovely",
         counter: "7 sound",
-        id:"lovely"
+        id: "lovely"
 
 
     },
@@ -630,11 +635,24 @@ popular.forEach((val) => {
 
 const search = document.getElementById("search")
 
-search.addEventListener("click" , ()=>{
+search.addEventListener("click", () => {
 
-    
+
 
 })
 
 
 // search in phone
+
+
+
+// time for site // 
+
+const x = document.querySelector(".timesite")
+
+setInterval(() => {
+    const time = new Date().toLocaleTimeString()
+    x.innerHTML = time
+}, 1000);
+
+// time for site // 
