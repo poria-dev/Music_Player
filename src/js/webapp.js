@@ -1,6 +1,7 @@
 
 const profileImg = document.querySelector("#profileImg")
-
+const icon = document.querySelector(".icon")
+const playnotif = new Audio("src/Asset/music/notif/Message-notification.mp3")
 const profileInput = document.querySelector("#profileInput")
 
 const mode = document.querySelector(".cardmode")
@@ -15,6 +16,28 @@ if (savedProfile) {
 
 }
 
+
+// icon sound /
+
+
+let flag = true
+icon.addEventListener("click", (e) => {
+
+    if (flag == true) {
+        playnotif.currentTime = 0
+        playnotif.play()
+        icon.children[0].classList.remove("bg-white/[0.03]")
+        icon.children[0].classList.add("bg-violet-500/[0.08]")
+    } else {
+        icon.children[0].classList.add("bg-white/[0.03]")
+        icon.children[0].classList.remove("bg-violet-500/[0.08]")
+    }
+
+    flag = !flag
+
+})
+
+// icon sound /
 
 
 window.addEventListener("load", () => {
@@ -633,11 +656,23 @@ popular.forEach((val) => {
 // search in phone
 
 
-const search = document.getElementById("search")
+const menuphone = document.querySelectorAll(".menuphone>div")
 
-search.addEventListener("click", () => {
+menuphone.forEach((val) => {
 
+    val.addEventListener("click", () => {
 
+        if (val.getAttribute("id") == "search") {
+
+            searchBox.classList.remove("hidden")
+            searchBox.classList.add("flex")
+
+        } else {
+            searchBox.classList.remove("flex")
+            searchBox.classList.add("hidden")
+        }
+
+    })
 
 })
 
@@ -656,3 +691,64 @@ setInterval(() => {
 }, 1000);
 
 // time for site // 
+
+
+
+// video reels /
+
+
+const cardreels = document.querySelectorAll(".cardreels")
+
+const boxforreels = document.querySelector(".boxforreels")
+
+
+cardreels.forEach((val) => {
+
+    const video = val.querySelector("video")
+
+    val.addEventListener("click", () => {
+
+        boxforreels.classList.remove("hidden")
+        boxforreels.classList.add("flex")
+
+
+        // make for copy 
+        
+        const newvideo = video.cloneNode(true)
+
+        // make for copy 
+
+        newvideo.muted = false
+        newvideo.controls = true
+
+        newvideo.classList.add(
+            "w-full",
+            "max-w-[500px]",
+            "h-auto",
+            "max-h-[85vh]",
+            "rounded-2xl",
+            "object-contain"
+        )
+
+        boxforreels.innerHTML = ""
+        boxforreels.appendChild(newvideo)
+
+        newvideo.play()
+
+    })
+
+})
+
+
+boxforreels.addEventListener("click", () => {
+
+    boxforreels.classList.add("hidden")
+    boxforreels.classList.remove("flex")
+
+    boxforreels.innerHTML = ""
+
+})
+
+
+
+// video reels /
