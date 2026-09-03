@@ -152,6 +152,380 @@ window.addEventListener("load", () => {
 
 
 
+
+
+// array for all sound //
+//  / /  /  / /   
+//  / /  / /  / 
+
+
+const allsounds = [
+
+    {
+
+        sound: "https://irsv.upmusics.com/AliBZ/Morteza%20Pashaei%20%7C%20Yeki%20Hast%20(320).mp3",
+        cover: "src/Asset/img/javan/img1.jpg",
+        title: "yeki hast",
+        artist: "morteza pashaei",
+        fav: false,
+        mood: "Sad"
+
+    },
+
+    {
+
+        sound: "https://dl.rozmusic.com/Music/1405/05/27/Naser%20Zeynali%20-%20Daram%20Adat%20Mikonam%20%28128%29.mp3",
+        cover: "src/Asset/img/javan/Naser-Zeynali-Daram-Adat-Mikonam.jpg",
+        title: "daram adat mikonam",
+        artist: "naser zeynali",
+        fav: false,
+        mood: "Sad"
+
+    },
+
+    {
+
+        sound: "https://irsv.upmusics.com/singletracks/2026/08/Arshiyas%20-%20Adi%20Ni%20UpMusics.mp3",
+        cover: "src/Asset/img/javan/img2.jpg",
+        title: "adi ni",
+        artist: "arshiyas",
+        fav: false,
+        mood: "Pop"
+
+    },
+
+    {
+
+        sound: "https://irsv.upmusics.com/singletracks/2026/08/Erfan%20Abra%20-%20Belakhare%20UpMusics_2.mp3",
+        cover: "src/Asset/img/javan/img3.jpg",
+        title: "Belakhare ",
+        artist: "erfan abra",
+        fav: false,
+        mood: "Happy"
+
+    },
+    {
+
+        sound: "https://dl.remiixbaz.com/music/siavash-ghomeyshi/Siavash%20Ghomeyshi%20-%20Jaziireh%20%28Remixbaz.com%29%20%28320%29.mp3",
+        cover: "src/Asset/img/javan/jazireh.jfif",
+        title: "jazireh",
+        artist: "siavash",
+        fav: false,
+        mood: "Nostalgia"
+
+    },
+    {
+
+        sound: "https://dl.musicsweb.ir/musics/03/06/Unknown%20Artist%20-%20Faghat%20Asheghe%20Inam%20-%20320.mp3",
+        cover: "src/Asset/img/الکی.jpg",
+        title: "alaki",
+        artist: "siavash",
+        fav: false,
+        mood: "Nostalgia"
+
+    },
+
+    {
+
+        sound: "https://dl.gisomusic.com/Music/1405/06/01/Meysam%20Ebrahimi%20-%20Az%20Tarsam.mp3",
+        cover: "src/Asset/img/از ترسم.webp",
+        title: "Az Tarsam",
+        artist: "Meysam Ebrahimi",
+        fav: false,
+        mood: "Pop"
+
+    },
+
+    {
+
+        sound: "https://dl.gisomusic.com/Music/1405/05/31/Hamid%20Askari%20-%20Navazesham%20Kon.mp3",
+        cover: "src/Asset/img/Hamid-Askari-Navazesham-Kon.webp",
+        title: "Navazesham Kon",
+        artist: "Hamid Askari",
+        fav: false,
+        mood: "Sad"
+
+    },
+
+    {
+
+        sound: "https://dl.gisomusic.com/Music/1405/06/10/Masoud%20Sadeghloo%20Ft.%20Azhman%20-%203%20Harfi.mp3",
+        cover: "src/Asset/img/Masoud-Sadeghloo-Ft.-Azhman-3-Harfi.webp",
+        title: "3 Harfi From",
+        artist: "Masoud Sadeghloo",
+        fav: false,
+        mood: "Today"
+
+    },
+
+    {
+
+        sound: "https://dl.gisomusic.com/Music/1405/05/28/Haamim%20-%20Bato.mp3",
+        cover: "src/Asset/img/Haamim-Bato.webp",
+        title: "Bato",
+        artist: "Haamim",
+        fav: false,
+        mood: "Lovely"
+
+    },
+
+    {
+
+        sound: "https://dl.musicgitar.ir/Music/Ebi/320/Ebi%20-%20Aadat%20%5B320%5D.mp3?_=1",
+        cover: "src/Asset/img/adatebi.jpg",
+        title: "adat",
+        artist: "ebi",
+        fav: false,
+        mood: "Nostalgia"
+
+    },
+
+    {
+
+        sound: "https://dl.musicgitar.ir/Music/Ebi/320/Ebi%20-%20Delpoosh%20%5B320%5D.mp3?_=3",
+        cover: "src/Asset/img/ebipoosh.jpg",
+        title: "delpoosh",
+        artist: "ebi",
+        fav: false,
+        mood: "Nostalgia"
+
+    },
+
+    {
+
+        sound: "https://dl.musicgitar.ir/Music/Ebi/320/Ebi%20-%20Hamdam%20%5B320%5D.mp3?_=8",
+        cover: "src/Asset/img/ebi-hamdam.jpg",
+        title: "hamdam",
+        artist: "ebi",
+        fav: false,
+        mood: "Nostalgia"
+
+    },
+
+    {
+
+        sound: "https://dl.musicgitar.ir/Music/Ebi/320/Ebi%20-%20Khanom%20Gol%20%5B320%5D.mp3?_=10",
+        cover: "src/Asset/img/ebi-khanom-gol.jpg",
+        title: "khanomgol",
+        artist: "ebi",
+        fav: false,
+        mood: "Nostalgia"
+
+    },
+
+    {
+
+        sound: "https://dl.mahanmusic.net/ahang/01/12/%E2%80%8EUnknown%20Artist%20-%20Ghalbe%20To%20-%20128%20-%20mahanmusic.net.mp3",
+        cover: "src/Asset/img/Ghalbe-To-Ghalbe-Parande.jpg",
+        title: "ghalbeTo",
+        artist: "ebi",
+        fav: false,
+        mood: "Nostalgia"
+
+    },
+
+    {
+
+        sound: "https://dl.gisomusic.com/Music/1403/01/31/Saeed%20Asayesh%20-%20Sharareh.mp3",
+        cover: "src/Asset/img/Saeid-Asayesh-Sharare-Music-fa.com_.jpg",
+        title: "Sharareh",
+        artist: "Saeed Asayesh",
+        fav: false,
+        mood: "Happy"
+
+    },
+
+    {
+
+        sound: "https://dl5.download1music.ir/Music/2024/Saeed%20Asayesh/Saeed%20Asayesh%20-%20Sharareh%202.mp3",
+        cover: "src/Asset/img/Saeed-Asayesh-Sharareh-2-ahaang.jpg",
+        title: "Sharareh2",
+        artist: "Saeed Asayesh",
+        fav: false,
+        mood: "Sport"
+
+    },
+
+    {
+
+        sound: "https://dl5.download1music.ir/Music/2026/Garsha%20Rezaei/Garsha%20Rezaei%20-%20Man%20o%20To%20(Live%20Version)%20128.mp3",
+        cover: "src/Asset/img/Garsha-Rezaei-Man-o-To-(Live-Version).jpg",
+        title: "Man o To",
+        artist: "garsharezaei",
+        fav: false,
+        mood: "Sport"
+
+    },
+
+    {
+
+        sound: "https://dl5.download1music.ir/Music/2026/Mohsen%20Ebrahimzadeh/Mohsen%20Ebrahimzadeh%20-%20Nemire%20Yadam%20128.mp3",
+        cover: "src/Asset/img/Mohsen-Ebrahimzadeh-Nemire-Yadam.jpg",
+        title: "NemireYadam",
+        artist: "mohsenebrahimzadeh",
+        fav: false,
+        mood: "Emotional"
+
+    },
+
+    {
+
+        sound: "https://irsv.upmusics.com/AliBZ/Khaste%20Shodam%20Remix%20(320).mp3",
+        cover: "src/Asset/img/haydeh1.webp",
+        title: "masti",
+        artist: "hayedeh",
+        fav: false,
+        mood: "Sad"
+
+    },
+
+    {
+
+        sound: "https://irsv.upmusics.com/AliBZ/Majid%20Razavi%20%7C%20Moteasefane%20(320).mp3",
+        cover: "src/Asset/img/majid.jpg",
+        title: "moteasefane",
+        artist: "majidrazavi",
+        fav: false,
+        mood: "Lovely"
+
+    },
+
+    {
+
+        sound: "https://dl.musicgitar.ir/Music/Shadmehr%20Aghili/320/Shadmehr%20Aghili%20-%20Bi%20Ehsas%20%5B320%5D.mp3?_=5",
+        cover: "src/Asset/img/Shadmehr-Aghili-Bi-Ehsas.jpg",
+        title: "bi ehsas",
+        artist: "shadmehr",
+        fav: false,
+        mood: "Pop"
+
+    },
+
+    {
+
+        sound: "https://dl.musicgitar.ir/Music/Shadmehr%20Aghili/320/Shadmehr%20Aghili%20-%20Halam%20Avaz%20Mishe%20%5B320%5D.mp3?_=16",
+        cover: "src/Asset/img/Shadmehr-Music-Collection.jpg",
+        title: "halam avaz",
+        artist: "shadmehr",
+        fav: false,
+        mood: "Emotional"
+
+    },
+
+]
+
+
+const searchResults = document.getElementById("searchResults")
+const searchinput = document.getElementById("searchInput")
+allsounds.forEach((val) => {
+
+    searchResults.innerHTML += `
+    
+<div data-status="${val.mood}" data-fav="${val.fav}" class="musicc hidden flex h-[80px] p-3 rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer items-center gap-3">
+
+    <div class="w-14 h-14 shrink-0 rounded-xl overflow-hidden">
+
+        <img
+            src="${val.cover}"
+            alt=""
+            class="w-full h-full object-cover">
+
+    </div>
+
+
+    <div class="min-w-0 flex-1">
+
+        <h4 class="text-white text-sm font-semibold truncate">
+            ${val.title}
+        </h4>
+
+        <p class="text-white/50 text-xs mt-1 truncate">
+            ${val.artist}
+
+        </p>
+
+    </div>
+
+
+    <button
+        class="w-9 h-9 shrink-0 rounded-full bg-purple-500/20 hover:bg-purple-500 flex items-center justify-center transition-all duration-300">
+
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            class="w-4 h-4 text-white">
+
+            <path
+                d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.12-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14Z"/>
+
+        </svg>
+
+    </button>
+
+
+    <audio
+        src="${val.sound}"
+        class="hidden">
+    </audio>
+
+</div>
+
+    `
+
+})
+
+const musicc = document.querySelectorAll(".musicc")
+
+
+searchinput.addEventListener("input", () => {
+
+    allsounds.forEach((val, index) => {
+
+        let x = searchinput.value.trim().toLowerCase()
+
+        let targetmusic = musicc[index]
+
+        if (val.title.toLowerCase().indexOf(x) >= 0 || val.artist.toLowerCase().indexOf(x) >= 0) {
+
+            targetmusic.classList.remove("hidden")
+            targetmusic.classList.add("flex")
+
+        } else {
+            targetmusic.classList.remove("flex")
+            targetmusic.classList.add("hidden")
+        }
+
+        if (x == "") {
+
+            musicc.forEach((val) => {
+                val.classList.remove("flex")
+                val.classList.add("hidden")
+            })
+        }
+
+    })
+
+
+})
+
+
+// array for all sound //
+//  / /  /  / /
+//  / /  / /  / 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // create profile from you / / / /
 
 
@@ -203,7 +577,7 @@ const arti = [{
 
     cover: "src/Asset/img/arti/ebi-0178a53f6fde218-photo.jpeg",
 
-    title: "ebi",
+    title: "Ebi",
 
     id: "ebi"
 
@@ -278,6 +652,40 @@ arti.forEach((val) => {
     </figure>
 
     `
+})
+
+const inaboutart = document.querySelectorAll(".aboutart>figure")
+
+inaboutart.forEach((val) => {
+
+    val.addEventListener("click", (e) => {
+
+        filterr.classList.remove("hidden")
+        filterr.classList.add("flex")
+        filterr.querySelector("p").innerHTML = "choose your artist"
+        let x = e.currentTarget
+        let id = x.getAttribute("id")
+
+        musicc2.forEach((item) => {
+
+            let text = item.querySelector("p").textContent.trim()
+
+            if (id.toLowerCase() == text.toLowerCase()) {
+
+
+                item.classList.remove("hidden")
+                item.classList.add("flex")
+
+            } else {
+
+                item.classList.add("hidden")
+                item.classList.remove("flex")
+
+            }
+
+        })
+
+    })
 
 })
 
@@ -599,6 +1007,8 @@ menuItem.forEach((val) => {
 // popular playlist /  / /  /  /  
 
 const cardpopular = document.querySelector(".cardpopular")
+const overfilter = document.querySelector(".overfilter")
+const filterr = document.querySelector(".filterr")
 
 const popular = [
 
@@ -606,14 +1016,14 @@ const popular = [
         cover: "src/Asset/img/popularplaylist/0c697696335e7a1.jpeg",
         title: "emotional",
         counter: "10 sound",
-        id: "emotional"
+        id: "Emotional"
 
     },
     {
         cover: "src/Asset/img/popularplaylist/e74c9ce3e3a63e7.jpeg",
         title: "today",
         counter: "13 sound",
-        id: "today"
+        id: "Today"
 
 
     },
@@ -621,7 +1031,7 @@ const popular = [
         cover: "src/Asset/img/popularplaylist/ec2f18bcf8eaa48.jpeg",
         title: "lovely",
         counter: "7 sound",
-        id: "lovely"
+        id: "Lovely"
 
 
     },
@@ -632,10 +1042,12 @@ popular.forEach((val) => {
 
     cardpopular.innerHTML += `
 
-        <div class="cards w-full h-1/3 flex items-center gap-2 my-2  text-white">
+        <div class="cards w-full h-1/3 flex items-center gap-2 my-2 text-white">
 
-            <figure id="${val.id}" class="w-[30%] cursor-pointer h-full shrink-0">
-                <img src="${val.cover}" alt="" class="w-full h-full object-cover rounded-md">
+            <figure class="w-[30%] cursor-pointer h-full shrink-0">
+
+                <img id="${val.id}" src="${val.cover}" alt="" class="w-full h-full object-cover rounded-md">
+
             </figure>
 
             <div class="px-2 w-[70%] min-w-0">
@@ -649,6 +1061,43 @@ popular.forEach((val) => {
         </div>
 
     `
+
+})
+
+
+const cards = document.querySelectorAll(".cards")
+
+
+cards.forEach((item) => {
+
+    item.addEventListener("click", (e) => {
+
+        let x = e.target.closest(".cards")
+        let id = x.querySelector("img").getAttribute("id")
+
+        console.log(id)
+
+        filterr.classList.remove("hidden")
+        filterr.classList.add("flex")
+        filterr.querySelector("p").textContent = "choose your popular play list"
+
+        musicc2.forEach((val) => {
+
+            if (val.getAttribute("data-status") == id) {
+
+                val.classList.remove("hidden")
+                val.classList.add("flex")
+
+            } else {
+
+                val.classList.add("hidden")
+                val.classList.remove("flex")
+
+            }
+
+        })
+
+    })
 
 })
 // popular playlist /  / /  /  /  
@@ -787,274 +1236,32 @@ closee.addEventListener("click", () => {
 
 
 
-// array for all sound //
-//  / /  /  / /   
-//  / /  / /  / 
 
 
-const allsounds = [
 
-    {
 
-        sound: "https://irsv.upmusics.com/AliBZ/Morteza%20Pashaei%20%7C%20Yeki%20Hast%20(320).mp3",
-        cover: "src/Asset/img/javan/img1.jpg",
-        title: "yeki hast",
-        artist: "morteza pashaei",
-        fav: false,
-        mood: "Sad"
 
-    },
 
-    {
+// filter //  / /  / /  /  / /  / /  /  / / /  / /  / /  /  /  /  / /  /
 
-        sound: "https://dl.rozmusic.com/Music/1405/05/27/Naser%20Zeynali%20-%20Daram%20Adat%20Mikonam%20%28128%29.mp3",
-        cover: "src/Asset/img/javan/Naser-Zeynali-Daram-Adat-Mikonam.jpg",
-        title: "daram adat mikonam",
-        artist: "naser zeynali",
-        fav: false,
-        mood: "Sad"
 
-    },
 
-    {
 
-        sound: "https://irsv.upmusics.com/singletracks/2026/08/Arshiyas%20-%20Adi%20Ni%20UpMusics.mp3",
-        cover: "src/Asset/img/javan/img2.jpg",
-        title: "adi ni",
-        artist: "arshiyas",
-        fav: false,
-        mood: "Pop"
+filterr.addEventListener("click", (e) => {
 
-    },
+    if (e.target == filterr) {
 
-    {
+        filterr.classList.remove("flex")
+        filterr.classList.add("hidden")
 
-        sound: "https://irsv.upmusics.com/singletracks/2026/08/Erfan%20Abra%20-%20Belakhare%20UpMusics_2.mp3",
-        cover: "src/Asset/img/javan/img3.jpg",
-        title: "Belakhare ",
-        artist: "erfan abra",
-        fav: false,
-        mood: "Happy"
-
-    },
-    {
-
-        sound: "https://dl.remiixbaz.com/music/siavash-ghomeyshi/Siavash%20Ghomeyshi%20-%20Jaziireh%20%28Remixbaz.com%29%20%28320%29.mp3",
-        cover: "src/Asset/img/javan/jazireh.jfif",
-        title: "jazireh",
-        artist: "siavash",
-        fav: false,
-        mood: "Nostalgia"
-
-    },
-    {
-
-        sound: "https://dl.musicsweb.ir/musics/03/06/Unknown%20Artist%20-%20Faghat%20Asheghe%20Inam%20-%20320.mp3",
-        cover: "src/Asset/img/الکی.jpg",
-        title: "alaki",
-        artist: "siavash",
-        fav: false,
-        mood: "Nostalgia"
-
-    },
-
-    {
-
-        sound: "https://dl.gisomusic.com/Music/1405/06/01/Meysam%20Ebrahimi%20-%20Az%20Tarsam.mp3",
-        cover: "src/Asset/img/از ترسم.webp",
-        title: "Az Tarsam",
-        artist: "Meysam Ebrahimi",
-        fav: false,
-        mood: "Pop"
-
-    },
-
-    {
-
-        sound: "https://dl.gisomusic.com/Music/1405/05/31/Hamid%20Askari%20-%20Navazesham%20Kon.mp3",
-        cover: "src/Asset/img/Hamid-Askari-Navazesham-Kon.webp",
-        title: "Navazesham Kon",
-        artist: "Hamid Askari",
-        fav: false,
-        mood: "Sad"
-
-    },
-
-    {
-
-        sound: "https://dl.gisomusic.com/Music/1405/06/10/Masoud%20Sadeghloo%20Ft.%20Azhman%20-%203%20Harfi.mp3",
-        cover: "src/Asset/img/Masoud-Sadeghloo-Ft.-Azhman-3-Harfi.webp",
-        title: "3 Harfi From",
-        artist: "Masoud Sadeghloo",
-        fav: false,
-        mood: "Today"
-
-    },
-
-    {
-
-        sound: "https://dl.gisomusic.com/Music/1405/05/28/Haamim%20-%20Bato.mp3",
-        cover: "src/Asset/img/Haamim-Bato.webp",
-        title: "Bato",
-        artist: "Haamim",
-        fav: false,
-        mood: "Lovely"
-
-    },
-
-    {
-
-        sound: "https://dl.musicgitar.ir/Music/Ebi/320/Ebi%20-%20Aadat%20%5B320%5D.mp3?_=1",
-        cover: "src/Asset/img/adatebi.jpg",
-        title: "adat",
-        artist: "ebi",
-        fav: false,
-        mood: "Nostalgia"
-
-    },
-
-    {
-
-        sound: "https://dl.musicgitar.ir/Music/Ebi/320/Ebi%20-%20Delpoosh%20%5B320%5D.mp3?_=3",
-        cover: "src/Asset/img/ebipoosh.jpg",
-        title: "delpoosh",
-        artist: "ebi",
-        fav: false,
-        mood: "Nostalgia"
-
-    },
-
-    {
-
-        sound: "https://dl.musicgitar.ir/Music/Ebi/320/Ebi%20-%20Hamdam%20%5B320%5D.mp3?_=8",
-        cover: "src/Asset/img/ebi-hamdam.jpg",
-        title: "hamdam",
-        artist: "ebi",
-        fav: false,
-        mood: "Nostalgia"
-
-    },
-
-    {
-
-        sound: "https://dl.musicgitar.ir/Music/Ebi/320/Ebi%20-%20Khanom%20Gol%20%5B320%5D.mp3?_=10",
-        cover: "src/Asset/img/ebi-khanom-gol.jpg",
-        title: "khanomgol",
-        artist: "ebi",
-        fav: false,
-        mood: "Nostalgia"
-
-    },
-
-    {
-
-        sound: "https://dl.mahanmusic.net/ahang/01/12/%E2%80%8EUnknown%20Artist%20-%20Ghalbe%20To%20-%20128%20-%20mahanmusic.net.mp3",
-        cover: "src/Asset/img/Ghalbe-To-Ghalbe-Parande.jpg",
-        title: "ghalbeTo",
-        artist: "ebi",
-        fav: false,
-        mood: "Nostalgia"
-
-    },
-
-    {
-
-        sound: "https://dl.gisomusic.com/Music/1403/01/31/Saeed%20Asayesh%20-%20Sharareh.mp3",
-        cover: "src/Asset/img/Saeid-Asayesh-Sharare-Music-fa.com_.jpg",
-        title: "Sharareh",
-        artist: "Saeed Asayesh",
-        fav: false,
-        mood: "Happy"
-
-    },
-
-    {
-
-        sound: "https://dl5.download1music.ir/Music/2024/Saeed%20Asayesh/Saeed%20Asayesh%20-%20Sharareh%202.mp3",
-        cover: "src/Asset/img/Saeed-Asayesh-Sharareh-2-ahaang.jpg",
-        title: "Sharareh2",
-        artist: "Saeed Asayesh",
-        fav: false,
-        mood: "Sport"
-
-    },
-
-    {
-
-        sound: "https://dl5.download1music.ir/Music/2026/Garsha%20Rezaei/Garsha%20Rezaei%20-%20Man%20o%20To%20(Live%20Version)%20128.mp3",
-        cover: "src/Asset/img/Garsha-Rezaei-Man-o-To-(Live-Version).jpg",
-        title: "Man o To",
-        artist: "garsharezaei",
-        fav: false,
-        mood: "Sport"
-
-    },
-
-    {
-
-        sound: "https://dl5.download1music.ir/Music/2026/Mohsen%20Ebrahimzadeh/Mohsen%20Ebrahimzadeh%20-%20Nemire%20Yadam%20128.mp3",
-        cover: "src/Asset/img/Mohsen-Ebrahimzadeh-Nemire-Yadam.jpg",
-        title: "NemireYadam",
-        artist: "mohsenebrahimzadeh",
-        fav: false,
-        mood: "Emotional"
-
-    },
-
-    {
-
-        sound: "https://irsv.upmusics.com/AliBZ/Khaste%20Shodam%20Remix%20(320).mp3",
-        cover: "src/Asset/img/haydeh1.webp",
-        title: "masti",
-        artist: "hayedeh",
-        fav: false,
-        mood: "Sad"
-
-    },
-
-    {
-
-        sound: "https://irsv.upmusics.com/AliBZ/Majid%20Razavi%20%7C%20Moteasefane%20(320).mp3",
-        cover: "src/Asset/img/majid.jpg",
-        title: "moteasefane",
-        artist: "majidrazavi",
-        fav: false,
-        mood: "Lovely"
-
-    },
-
-    {
-
-        sound: "https://dl.musicgitar.ir/Music/Shadmehr%20Aghili/320/Shadmehr%20Aghili%20-%20Bi%20Ehsas%20%5B320%5D.mp3?_=5",
-        cover: "src/Asset/img/Shadmehr-Aghili-Bi-Ehsas.jpg",
-        title: "bi ehsas",
-        artist: "shadmehr",
-        fav: false,
-        mood: "Pop"
-
-    },
-
-    {
-
-        sound: "https://dl.musicgitar.ir/Music/Shadmehr%20Aghili/320/Shadmehr%20Aghili%20-%20Halam%20Avaz%20Mishe%20%5B320%5D.mp3?_=16",
-        cover: "src/Asset/img/Shadmehr-Music-Collection.jpg",
-        title: "halam avaz",
-        artist: "shadmehr",
-        fav: false,
-        mood: "Emotional"
-
-    },
-
-]
-
-
-const searchResults = document.getElementById("searchResults")
+    }
+})
 
 allsounds.forEach((val) => {
 
-    searchResults.innerHTML += `
-    
-<div data-status="${val.mood}" data-fav="${val.fav}" class="musicc flex p-3 rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer items-center gap-3">
+    overfilter.innerHTML += `
+
+<div data-status="${val.mood}" data-fav="${val.fav}" class="musicc2 w-full flex h-[80px] p-3 rounded-2xl bg-white/50 hover:bg-white/10 transition-all duration-300 cursor-pointer items-center gap-3 *:text-black">
 
     <div class="w-14 h-14 shrink-0 rounded-xl overflow-hidden">
 
@@ -1068,11 +1275,11 @@ allsounds.forEach((val) => {
 
     <div class="min-w-0 flex-1">
 
-        <h4 class="text-white text-sm font-semibold truncate">
+        <h4 class=" text-sm font-semibold truncate">
             ${val.title}
         </h4>
 
-        <p class="text-white/50 text-xs mt-1 truncate">
+        <p class="text-black/50 text-xs mt-1 truncate">
             ${val.artist}
 
         </p>
@@ -1104,13 +1311,74 @@ allsounds.forEach((val) => {
 
 </div>
 
-    `
+`
+
+})
+const musicc2 = document.querySelectorAll(".musicc2")
 
 
+// filter //  / /  / /  /  / /  / /  /  / / /  / /  / /  /  /  /  / /  /
+
+
+
+
+
+
+
+
+
+// category / /  / /  / / /  /   /  / /  /  / / /  / /  /  /  /
+
+
+
+
+const cardmode = document.querySelectorAll(".cardmode >div")
+
+cardmode.forEach((val) => {
+    val.addEventListener("click", (e) => {
+
+        filterr.classList.remove("hidden")
+        filterr.classList.add("flex")
+        filterr.querySelector("p").textContent = "choose your mood"
+
+        musicc2.forEach((item) => {
+
+            if (item.getAttribute("data-status") == val.getAttribute("data-status")) {
+
+                item.classList.remove("hidden")
+                item.classList.add("flex")
+
+            } else {
+                item.classList.remove("flex")
+                item.classList.add("hidden")
+            }
+
+        })
+
+    })
 })
 
 
 
-// array for all sound //
-//  / /  /  / /
-//  / /  / /  / 
+// category / /  / /  / / /  /   /  / /  /  / / /  / /  /  /  /
+
+
+
+
+
+
+
+// loading /  / /  /  /  
+
+const loadd = document.querySelector(".loadde")
+
+setTimeout(() => {
+
+    loadd.classList.remove("flex")
+    bodyy.classList.remove("overflow-hidden")
+    loadd.classList.add("hidden")
+
+}, 10000)
+
+// loading /  / /  /  /  
+

@@ -15,3 +15,19 @@
     --font-font4: "Plus Jakarta Sans", sans-serif;
 
 }
+
+.music{
+    animation: 2s linear infinite alternate;
+}
+
+@keyframes music {
+
+    0%, 100% {
+        transform: scaleY(.35);
+    }
+
+    50% {
+        transform: scaleY(1);
+    }
+
+}

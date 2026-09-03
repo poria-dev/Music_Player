@@ -145,7 +145,7 @@ body {
 
 </head>
 
-<body class="bodyy m-0 p-0 bg-[#08080b] select-none">
+<body class="bodyy m-0 p-0 bg-[#08080b] select-none overflow-hidden">
 
 
 <section class="w-full relative min-h-screen flex flex-row flex-nowrap items-start overflow-x-clip">
@@ -409,7 +409,7 @@ body {
                 <!-- result search  -->
 
                
-                <div id="searchResults" class="w-full  text-white min-h-[300px] flex flex-wrap gap-4 *:w-[95%] *:lg:w-[80%]">
+                <div id="searchResults" class="w-full  text-white min-h-[100px] flex flex-wrap gap-4 *:w-[95%] *:lg:w-[80%]">
 
                   
 
@@ -1057,7 +1057,7 @@ body {
         <!-- pop -->
 
         <div
-            data-status="100"
+            data-status="Pop"
             class="w-[150px] h-[140px] shrink-0 rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
 
             <svg
@@ -1110,7 +1110,7 @@ body {
         <!-- rap -->
 
         <div
-            data-status="200"
+            data-status="Rap"
             class="w-[150px] h-[140px] shrink-0 rounded-2xl bg-[#11111d] border border-white/5 hidden lg:flex flex-col items-center justify-center">
 
             <svg
@@ -1171,7 +1171,7 @@ body {
         <!-- nostalgia -->
 
         <div
-            data-status="300"
+            data-status="Nostalgia"
             class="w-[150px] h-[140px] shrink-0 rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
 
             <svg
@@ -1225,7 +1225,7 @@ body {
         <!-- happy -->
 
         <div
-            data-status="400"
+            data-status="Happy"
             class="w-[150px] h-[140px] shrink-0 rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
 
             <svg
@@ -1288,7 +1288,7 @@ body {
         <!-- sad -->
 
         <div
-            data-status="500"
+            data-status="Sad"
             class="w-[150px] h-[140px] shrink-0 rounded-2xl bg-[#11111d] border border-white/5 hidden md:flex flex-col items-center justify-center">
 
             <svg
@@ -1342,7 +1342,7 @@ body {
         <!-- sport -->
 
         <div
-            data-status="600"
+            data-status="Sport"
             class="w-[150px] h-[140px] shrink-0 rounded-2xl bg-[#11111d] border border-white/5 flex flex-col items-center justify-center">
 
             <svg
@@ -1807,6 +1807,92 @@ body {
 
 
 <!-- / phone bottom menu / -->
+
+
+
+
+<!-- filter -->
+
+
+<div class="filterr hidden fixed inset-0 w-full min-h-screen bg-black/70 backdrop-blur-[12px] z-[2000] p-3 sm:p-6">
+
+    <div class="absolute w-[76%] sm:w-[85%] md:w-[65%] lg:w-[52%] xl:w-[30%] h-[60%] lg:h-[80%] sm:h-[75%] top-[30%] left-[50%] translate-x-[-50%] translate-y-[-30%] bg-[#11101a] border border-white/[0.08] rounded-[28px] shadow-[0_25px_80px_rgba(0,0,0,0.6)] overflow-hidden">
+
+        <div class="w-full h-[70px] px-5 flex items-center gap-3 border-b border-white/[0.07]">
+
+            <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center">
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.7"
+                    stroke="currentColor"
+                    class="w-5 h-5 text-violet-400">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 9l10.5-3M9 9v8.25M9 9l10.5-3v8.25M9 17.25a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm10.5-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+
+                </svg>
+
+            </div>
+
+            <div>
+
+                <h3 class="text-white text-sm font-font4 sm:text-base font-bold font-[font4] capitalize">
+                    music collection
+                </h3>
+
+                <p class="text-white/35 font-font2 text-[10px] sm:text-xs mt-0.5">
+                    choose your mood
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="overfilter flex flex-col overflow-y-auto overflow-x-hidden gap-2 sm:gap-3 w-full h-[calc(100%-70px)] px-3 sm:px-5 py-4">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- filter -->
+
+
+
+<!-- loading page / -->
+
+
+
+<div class="loadde music w-full min-h-screen fixed bg-black z-10000000 flex flex-col items-center justify-center">
+
+    <div class="flex items-end gap-1.5 h-12">
+
+        <span class="w-3.5 h-5 rounded-full bg-violet-500 animate-[music_0.8s_ease-in-out_infinite]"></span>
+
+        <span class="w-3.5 h-9 rounded-full bg-violet-400 animate-[music_0.8s_ease-in-out_0.15s_infinite]"></span>
+
+        <span class="w-3.5 h-12 rounded-full bg-violet-300 animate-[music_0.8s_ease-in-out_0.3s_infinite]"></span>
+
+        <span class="w-3.5 h-8 rounded-full bg-violet-400 animate-[music_0.8s_ease-in-out_0.45s_infinite]"></span>
+
+        <span class="w-3.5 h-5 rounded-full bg-violet-500 animate-[music_0.8s_ease-in-out_0.6s_infinite]"></span>
+
+    </div>
+
+    <p class="mt-5 text-white/50 text-sm font-bold font-font4">
+        Please wait loading...
+    </p>
+
+</div>
+
+
+<!-- loading page / -->
 
 
 </section>
