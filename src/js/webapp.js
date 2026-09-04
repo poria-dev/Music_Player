@@ -412,6 +412,95 @@ const allsounds = [
 
     },
 
+
+    {
+
+        sound: "https://irsv.upmusics.com/singletracks/2026/09/Shayan%20Yo%20-%20Alaki%20UpMusics.mp3",
+        cover: "src/Asset/img/shayanyo.webp",
+        title: "alakii",
+        artist: "shayan Yo",
+        fav: false,
+        mood: "Sad"
+
+    },
+
+    {
+
+        sound: "https://irsv.upmusics.com/singletracks/2026/09/Dj%20Hami%20Bcn%20-%20Boom%20UpMusics.mp3",
+        cover: "src/Asset/img/Dj-Hami-Bcn-Boom.webp",
+        title: "Boom",
+        artist: "dj Hami Bcn",
+        fav: false,
+        mood: "Happy"
+
+    },
+
+    {
+
+        sound: "https://irsv.upmusics.com/singletracks/2026/09/Saeb%20-%20Tasian%20UpMusics.mp3",
+        cover: "src/Asset/img/Saeb-Tasian-f1ed5-scaled.webp",
+        title: "tasian",
+        artist: "saeb",
+        fav: false,
+        mood: "Sad"
+
+    },
+
+    {
+
+        sound: "https://irsv.upmusics.com/singletracks/2026/09/Arshan%20-%20Oxygen%20UpMusics.mp3",
+        cover: "src/Asset/img/Arshan-Oxygen-daf08-scaled.webp",
+        title: "Oxygen",
+        artist: "Arshan",
+        fav: false,
+        mood: "Lovely"
+
+    },
+
+    {
+
+        sound: "https://dl.beroosic.ir/music/1404/1/Mahasti-Bia-Benevisim.mp3",
+        cover: "src/Asset/img/ئشاشسفه.webp",
+        title: "bia benevisim",
+        artist: "mahasti",
+        fav: false,
+        mood: "Nostalgia"
+
+    },
+
+    {
+
+        sound: "https://dl.beroosic.ir/music/1403/12/Saghi-hide.mp3",
+        cover: "src/Asset/img/haydeh1.webp",
+        title: "saghi",
+        artist: "hayedeh",
+        fav: false,
+        mood: "Nostalgia"
+
+    },
+
+    {
+
+        sound: "https://dl.beroosic.ir/music/1403/12/siyah-Cheshmoon.mp3",
+        cover: "src/Asset/img/haydeh1.webp",
+        title: "siacheshmon",
+        artist: "hayedeh",
+        fav: false,
+        mood: "Nostalgia"
+
+    },
+
+    {
+
+        sound: "https://dl.beroosic.ir/music/1403/12/Zendegi.mp3",
+        cover: "src/Asset/img/haydeh1.webp",
+        title: "zendgi",
+        artist: "hayedeh",
+        fav: false,
+        mood: "Today"
+
+    },
+
 ]
 
 
@@ -421,7 +510,7 @@ allsounds.forEach((val) => {
 
     searchResults.innerHTML += `
     
-<div data-status="${val.mood}" data-fav="${val.fav}" class="musicc hidden flex h-[80px] p-3 rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer items-center gap-3">
+<div data-status="${val.mood}" data-fav="${val.fav}" data-sound="${val.sound}" data-artist="${val.artist}" data-cover="${val.cover}" data-title="${val.title}" class="musicc hidden flex h-[80px] p-3 rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer items-center gap-3">
 
     <div class="w-14 h-14 shrink-0 rounded-xl overflow-hidden">
 
@@ -463,11 +552,6 @@ allsounds.forEach((val) => {
 
     </button>
 
-
-    <audio
-        src="${val.sound}"
-        class="hidden">
-    </audio>
 
 </div>
 
@@ -974,6 +1058,7 @@ const menuItem = document.querySelectorAll(".menuItem")
 const menuActive = document.getElementById("menuActive")
 const searchBox = document.getElementById("searchBox")
 const bodyy = document.querySelector(".bodyy")
+const homeSeek = document.querySelector(".homeSeek")
 menuItem.forEach((val) => {
 
     val.addEventListener("click", () => {
@@ -989,10 +1074,36 @@ menuItem.forEach((val) => {
             searchBox.classList.add("flex")
             bodyy.classList.add("overflow-hidden")
 
+            homeSeek.classList.remove("flex")
+            homeSeek.classList.add("hidden")
+
+            homeAudio.pause()
+            homeSeek.classList.add("hidden")
+
+            homePlay.innerHTML = `
+
+      <svg
+       xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       fill="white"
+        class="w-5 h-5">
+
+      <path d="M8 5.5v13L19 12 8 5.5Z"/>
+
+      </svg>
+
+    `
+
+
+
+
+
+
         } else {
             searchBox.classList.remove("flex")
             searchBox.classList.add("hidden")
             bodyy.classList.remove("overflow-hidden")
+
 
         }
 
@@ -1121,11 +1232,33 @@ menuphone.forEach((val) => {
             searchBox.classList.add("flex")
             bodyy.classList.add("overflow-hidden")
 
+            homeSeek.classList.remove("flex")
+            homeSeek.classList.add("hidden")
+
+            homeAudio.pause()
+
+            homePlay.innerHTML = `
+
+      <svg
+       xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       fill="white"
+        class="w-5 h-5">
+
+      <path d="M8 5.5v13L19 12 8 5.5Z"/>
+
+      </svg>
+
+    `
+
 
         } else {
             searchBox.classList.remove("flex")
             searchBox.classList.add("hidden")
             bodyy.classList.remove("overflow-hidden")
+
+            homeSeek.classList.add("flex")
+            homeSeek.classList.remove("hidden")
 
         }
 
@@ -1161,6 +1294,7 @@ const cardreels = document.querySelectorAll(".cardreels")
 const boxforreels = document.querySelector(".boxforreels")
 
 
+
 cardreels.forEach((val) => {
 
     const video = val.querySelector("video")
@@ -1170,6 +1304,35 @@ cardreels.forEach((val) => {
         boxforreels.classList.remove("hidden")
         boxforreels.classList.add("flex")
 
+        homeAudio.pause()
+        audio1.pause()
+
+        homePlay.innerHTML = `
+
+      <svg
+       xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       fill="white"
+        class="w-5 h-5">
+
+      <path d="M8 5.5v13L19 12 8 5.5Z"/>
+
+      </svg>
+
+    `
+        play.innerHTML = `
+
+      <svg
+       xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       fill="white"
+        class="w-5 h-5">
+
+      <path d="M8 5.5v13L19 12 8 5.5Z"/>
+
+      </svg>
+
+    `
 
         // make for copy 
 
@@ -1261,7 +1424,7 @@ allsounds.forEach((val) => {
 
     overfilter.innerHTML += `
 
-<div data-status="${val.mood}" data-fav="${val.fav}" class="musicc2 w-full flex h-[80px] p-3 rounded-2xl bg-white/50 hover:bg-white/10 transition-all duration-300 cursor-pointer items-center gap-3 *:text-black">
+<div data-status="${val.mood}" data-fav="${val.fav}" data-sound="${val.sound}" data-artist="${val.artist}" data-cover="${val.cover}" data-title="${val.title}" class="musicc2 w-full flex h-[80px] p-3 rounded-2xl bg-white/50 hover:bg-white/10 transition-all duration-300 cursor-pointer items-center gap-3 *:text-black">
 
     <div class="w-14 h-14 shrink-0 rounded-xl overflow-hidden">
 
@@ -1304,11 +1467,6 @@ allsounds.forEach((val) => {
     </button>
 
 
-    <audio
-        src="${val.sound}"
-        class="hidden">
-    </audio>
-
 </div>
 
 `
@@ -1318,10 +1476,6 @@ const musicc2 = document.querySelectorAll(".musicc2")
 
 
 // filter //  / /  / /  /  / /  / /  /  / / /  / /  / /  /  /  /  / /  /
-
-
-
-
 
 
 
@@ -1381,4 +1535,773 @@ setTimeout(() => {
 }, 10000)
 
 // loading /  / /  /  /  
+
+
+
+
+// active seecbar
+
+
+const btn_play_music = document.querySelectorAll(".musicc>button")
+
+const seek = document.querySelector(".seek")
+
+const cover2 = document.getElementById("cover")
+
+const song2 = document.getElementById("song")
+
+const artist2 = document.getElementById("artist")
+
+const current2 = document.getElementById("current")
+
+const bar2 = document.getElementById("bar")
+
+const duration2 = document.getElementById("duration")
+
+const audio1 = document.getElementById("audio1")
+
+const fav2 = document.getElementById("fav")
+
+const player = document.getElementById("player")
+
+const play = document.getElementById("play")
+
+const progress = document.getElementById("progress")
+
+const back = document.getElementById("back")
+
+const next = document.getElementById("next")
+
+const rep = document.getElementById("rep")
+
+let turnlight = false
+
+let index = 0
+
+btn_play_music.forEach((val) => {
+
+    val.addEventListener("click", (e) => {
+
+        seek.classList.remove("hidden")
+        seek.classList.add("flex")
+
+        player.classList.remove("hidden")
+        player.classList.add("flex")
+
+        turnlight = true
+
+        bar2.style.width = 0
+
+        let x = e.currentTarget
+
+        let par = x.closest(".musicc")
+
+        let title = par.dataset.title
+
+        let cover = par.dataset.cover
+
+        let sound = par.dataset.sound
+
+        let artist = par.dataset.artist
+
+        let fav = par.dataset.fav
+
+        index = allsounds.findIndex((item) => item.title == title)
+
+        cover2.src = cover
+
+        song2.textContent = title
+
+        artist2.textContent = artist
+
+        audio1.src = sound
+
+        fav2.dataset.fav = fav
+
+        play.innerHTML = `
+
+        <svg
+
+          xmlns="http://www.w3.org/2000/svg"
+
+          viewBox="0 0 24 24"
+
+            fill="currentColor"
+
+            class="w-5 h-5 text-white">
+
+            <path d="M7 5.5a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Zm7 0a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Z"/>
+
+        </svg>
+
+        `
+
+        audio1.play()
+
+    })
+
+})
+
+audio1.addEventListener("loadedmetadata", () => {
+
+    let min = Math.floor(audio1.duration / 60)
+
+    let sec = Math.floor(audio1.duration % 60)
+
+    sec = sec.toString().padStart(2, "0")
+
+    duration2.textContent = `${min}:${sec}`
+
+})
+
+audio1.addEventListener("timeupdate", () => {
+
+    let min = Math.floor(audio1.currentTime / 60)
+
+    let sec = Math.floor(audio1.currentTime % 60)
+
+    sec = sec.toString().padStart(2, "0")
+
+    current2.textContent = `${min}:${sec}`
+
+    let navar = audio1.currentTime / audio1.duration * 100
+
+    bar2.style.width = `${navar}%`
+
+})
+
+play.addEventListener("click", () => {
+
+    if (audio1.paused) {
+
+        audio1.play()
+
+        turnlight = true
+
+        play.innerHTML = `
+
+        <svg
+
+          xmlns="http://www.w3.org/2000/svg"
+
+          viewBox="0 0 24 24"
+
+          fill="currentColor"
+
+          class="w-5 h-5 text-white">
+
+          <path d="M7 5.5a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Zm7 0a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Z"/>
+
+        </svg>
+
+        `
+
+    } else {
+
+        audio1.pause()
+
+        turnlight = false
+
+        play.innerHTML = `
+
+        <svg
+
+            id="playIcon"
+
+            xmlns="http://www.w3.org/2000/svg"
+
+            fill="currentColor"
+
+            viewBox="0 0 24 24"
+
+            class="w-6 h-6">
+
+            <path d="M8 5.5v13L19 12 8 5.5Z"/>
+
+        </svg>
+
+        `
+
+    }
+
+})
+
+progress.addEventListener("click", (e) => {
+
+    let wid = progress.clientWidth
+
+    let clickk = e.offsetX
+
+    let percent = clickk / wid
+
+    audio1.currentTime = percent * audio1.duration
+
+})
+
+audio1.addEventListener("ended", () => {
+
+    music_next_playorafter()
+
+})
+
+next.addEventListener("click", () => {
+
+    music_next_playorafter()
+
+})
+
+back.addEventListener("click", () => {
+
+    index--
+
+    if (index < 0) {
+
+        index = allsounds.length - 1
+
+    }
+
+    cover2.src = allsounds[index].cover
+
+    song2.textContent = allsounds[index].title
+
+    artist2.textContent = allsounds[index].artist
+
+    audio1.src = allsounds[index].sound
+
+    audio1.play()
+
+    turnlight = true
+
+    play.innerHTML = `
+
+    <svg
+
+      xmlns="http://www.w3.org/2000/svg"
+
+      viewBox="0 0 24 24"
+
+      fill="currentColor"
+
+      class="w-5 h-5 text-white">
+
+      <path d="M7 5.5a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Zm7 0a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Z"/>
+
+    </svg>
+
+    `
+
+    bar2.style.width = 0
+
+})
+
+function music_next_playorafter(params) {
+
+    index++
+
+    if (index >= allsounds.length) {
+
+        index = 0
+
+    }
+
+    cover2.src = allsounds[index].cover
+
+    song2.textContent = allsounds[index].title
+
+    artist2.textContent = allsounds[index].artist
+
+    audio1.src = allsounds[index].sound
+
+    audio1.play()
+
+    turnlight = true
+
+    play.innerHTML = `
+
+    <svg
+
+      xmlns="http://www.w3.org/2000/svg"
+
+      viewBox="0 0 24 24"
+
+      fill="currentColor"
+
+      class="w-5 h-5 text-white">
+
+      <path d="M7 5.5a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Zm7 0a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Z"/>
+
+    </svg>
+
+    `
+
+    bar2.style.width = 0
+
+}
+
+// repeat
+
+rep.addEventListener("click", () => {
+
+    audio1.loop = !audio1.loop
+
+    if (audio1.loop) {
+
+        rep.classList.remove("text-white/60")
+        rep.classList.add("text-violet-400")
+
+
+    } else {
+
+        rep.classList.add("text-white/60")
+        rep.classList.remove("text-violet-400")
+
+
+    }
+
+})
+
+// active seecbar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// seek2 /  /  / /  /  /  /  /  /  //  in home  / /  /  / /  / 
+
+
+const btn_play_home = document.querySelectorAll(".musicc2>button")
+const homeCover = document.querySelector("#homeCover")
+const homeSong = document.querySelector("#homeSong")
+const homeArtist = document.querySelector("#homeArtist")
+const homeCurrent = document.querySelector("#homeCurrent")
+const homeBar = document.querySelector("#homeBar")
+const homeDuration = document.querySelector("#homeDuration")
+const homeAudio = document.querySelector("#homeAudio")
+const homePlayer = document.querySelector("#homePlayer")
+const homePlay = document.querySelector("#homePlay")
+const homeProgress = document.querySelector("#homeProgress")
+const homeBack = document.querySelector("#homeBack")
+const homeNext = document.querySelector("#homeNext")
+
+
+let homeTurnlight = false
+let homeIndex = 0
+
+
+btn_play_home.forEach((val) => {
+
+    val.addEventListener("click", (e) => {
+
+        audio1.pause()
+
+        play.innerHTML = `
+
+      <svg
+       xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       fill="white"
+        class="w-5 h-5">
+
+      <path d="M8 5.5v13L19 12 8 5.5Z"/>
+
+      </svg>
+
+    `
+
+        homeSeek.classList.remove("hidden")
+        homeSeek.classList.add("flex")
+
+        homePlayer.classList.remove("hidden")
+        homePlayer.classList.add("grid")
+
+
+        homeTurnlight = true
+
+        homeBar.style.width = "0%"
+
+
+        let x = e.currentTarget
+
+        let par = x.closest(".musicc2")
+
+
+        let title = par.dataset.title
+        let cover = par.dataset.cover
+        let sound = par.dataset.sound
+        let artist = par.dataset.artist
+
+
+        homeIndex = allsounds.findIndex(
+            (item) => item.title == title
+        )
+
+
+        homeCover.src = cover
+
+        homeSong.textContent = title
+
+        homeArtist.textContent = artist
+
+        homeAudio.src = sound
+
+
+        homeCurrent.textContent = "00:00"
+
+        homeDuration.textContent = "00:00"
+
+
+        homePlay.innerHTML = `
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-5 h-5 text-white">
+
+                <path d="M7 5.5a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Zm7 0a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Z"/>
+
+            </svg>
+
+        `
+
+
+        homeAudio.play()
+
+    })
+
+})
+
+
+
+homeAudio.addEventListener("loadedmetadata", () => {
+
+    let min = Math.floor(homeAudio.duration / 60)
+
+    let sec = Math.floor(homeAudio.duration % 60)
+
+    sec = sec.toString().padStart(2, "0")
+
+
+    homeDuration.textContent = `${min}:${sec}`
+
+})
+
+
+
+homeAudio.addEventListener("timeupdate", () => {
+
+    let min = Math.floor(homeAudio.currentTime / 60)
+
+    let sec = Math.floor(homeAudio.currentTime % 60)
+
+    sec = sec.toString().padStart(2, "0")
+
+
+    homeCurrent.textContent = `${min}:${sec}`
+
+
+    let navar =
+        homeAudio.currentTime / homeAudio.duration * 100
+
+
+    homeBar.style.width = `${navar}%`
+
+})
+
+
+
+homePlay.addEventListener("click", () => {
+
+    if (homeAudio.paused) {
+
+        homeAudio.play()
+
+        homeTurnlight = true
+
+
+        homePlay.innerHTML = `
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-5 h-5 text-white">
+
+                <path d="M7 5.5a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Zm7 0a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Z"/>
+
+            </svg>
+
+        `
+
+    }
+
+    else {
+
+        homeAudio.pause()
+
+        homeTurnlight = false
+
+
+        homePlay.innerHTML = `
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                class="w-6 h-6">
+
+                <path d="M8 5.5v13L19 12 8 5.5Z"/>
+
+            </svg>
+
+        `
+
+    }
+
+})
+
+
+
+homeProgress.addEventListener("click", (e) => {
+
+    let wid = homeProgress.clientWidth
+
+    let clickk = e.offsetX
+
+    let percent = clickk / wid
+
+
+    homeAudio.currentTime =
+        percent * homeAudio.duration
+
+})
+
+
+
+homeAudio.addEventListener("ended", () => {
+
+    if (homeAudio.loop) {
+
+        homeAudio.currentTime = 0
+
+        homeAudio.play()
+
+        return
+
+    }
+
+
+    home_music_next_playorafter()
+
+})
+
+
+
+homeNext.addEventListener("click", () => {
+
+    home_music_next_playorafter()
+
+})
+
+
+
+homeBack.addEventListener("click", () => {
+
+    homeIndex--
+
+
+    if (homeIndex < 0) {
+
+        homeIndex = allsounds.length - 1
+
+    }
+
+
+    homeCover.src =
+        allsounds[homeIndex].cover
+
+
+    homeSong.textContent =
+        allsounds[homeIndex].title
+
+
+    homeArtist.textContent =
+        allsounds[homeIndex].artist
+
+
+    homeAudio.src =
+        allsounds[homeIndex].sound
+
+
+    homeAudio.currentTime = 0
+
+
+    homeCurrent.textContent = "00:00"
+
+    homeBar.style.width = "0%"
+
+
+    homeAudio.play()
+
+
+    homeTurnlight = true
+
+
+    homePlay.innerHTML = `
+
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-5 h-5 text-white">
+
+            <path d="M7 5.5a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Zm7 0a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Z"/>
+
+        </svg>
+
+    `
+
+})
+
+
+
+function home_music_next_playorafter() {
+
+    homeIndex++
+
+
+    if (homeIndex >= allsounds.length) {
+
+        homeIndex = 0
+
+    }
+
+
+    homeCover.src =
+        allsounds[homeIndex].cover
+
+
+    homeSong.textContent =
+        allsounds[homeIndex].title
+
+
+    homeArtist.textContent =
+        allsounds[homeIndex].artist
+
+
+    homeAudio.src =
+        allsounds[homeIndex].sound
+
+
+    homeAudio.currentTime = 0
+
+
+    homeCurrent.textContent = "00:00"
+
+    homeBar.style.width = "0%"
+
+
+    homeAudio.play()
+
+
+    homeTurnlight = true
+
+
+    homePlay.innerHTML = `
+
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-5 h-5 text-white">
+
+            <path d="M7 5.5a1.5 1.5 0 0 0-3 0v13a1.5 1.5 0 0 0 3 0v-13Zm7 0a1.5 1.5 0 0 0-3 0v13a1.5 1.5 0 0 0 3 0v-13Z"/>
+
+        </svg>
+
+    `
+
+}
+
+
+
+// repeat
+
+
+const homeRep = document.createElement("button")
+
+
+homeRep.id = "homeRep"
+
+homeRep.type = "button"
+
+
+homeRep.className =
+    "w-7 h-7 shrink-0 flex items-center justify-center text-white/60 hover:text-violet-400 active:scale-90 transition-all cursor-pointer"
+
+
+homeRep.innerHTML = `
+
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="w-4 h-4">
+
+        <path d="M17 1l4 4-4 4"/>
+
+        <path d="M3 11V9a4 4 0 014-4h14"/>
+
+        <path d="M7 23l-4-4 4-4"/>
+
+        <path d="M21 13v2a4 4 0 01-4 4H3"/>
+
+    </svg>
+
+`
+
+
+homeNext.parentElement.insertBefore(homeRep, homeNext)
+
+
+
+homeRep.addEventListener("click", () => {
+
+    homeAudio.loop = !homeAudio.loop
+
+
+    if (homeAudio.loop) {
+
+        homeRep.classList.remove("text-white/60")
+
+        homeRep.classList.add("text-violet-400")
+
+    }
+
+    else {
+
+        homeRep.classList.add("text-white/60")
+
+        homeRep.classList.remove("text-violet-400")
+
+    }
+
+})
+
+
+// seek2 /  /  / /  /  /  /  /  /  //  in home  / /  /  / /  / 
+
 

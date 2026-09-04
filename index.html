@@ -22,7 +22,6 @@ html,
 body {
     margin: 0;
     padding: 0;
-    background: #08080b;
 }
 
 body {
@@ -145,8 +144,9 @@ body {
 
 </head>
 
-<body class="bodyy m-0 p-0 bg-[#08080b] select-none overflow-hidden">
+<body class="bodyy m-0 p-0 select-none !bg-[#08080b] !text-white overflow-hidden">
 
+    
 
 <section class="w-full relative min-h-screen flex flex-row flex-nowrap items-start overflow-x-clip">
 
@@ -426,17 +426,18 @@ body {
 
     <!-- seekbar / -->
 
-    <div class="seek hidden fixed right-0 top-0  lg:flex justify-center items-center flex-wrap lg:w-[50%] min-h-screen">
+    
+<div class="seek hidden fixed bottom-17 left-0 w-full h-[82px] backdrop-blur-xl border-t border-white/10 z-[1500] flex justify-center items-center lg:right-0 lg:top-0 lg:bottom-auto lg:left-auto lg:w-[50%] lg:min-h-screen lg:h-auto">
 
-    <div id="player" class="orgseek flex flex-wrap w-[90%] h-[90%] *:my-5">
+    <div id="player" class="orgseek hidden flex flex-wrap w-[96%] h-[68px] relative lg:w-[90%] lg:h-[90%] *:my-0 lg:*:my-5">
 
         <!-- img -->
 
-        <figure class="w-full h-[65%] relative flex items-center justify-center overflow-hidden">
+        <figure class="w-[50px] h-[50px] shrink-0 relative flex items-center justify-center overflow-hidden lg:w-full lg:h-[65%] lg:shrink">
 
             <div
                 id="cd"
-                class="absolute w-[65%] aspect-square rounded-full left-[65%] top-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[18deg] animate-[spin_8s_linear_infinite] shadow-[0_0_35px_rgba(168,85,247,.4)]">
+                class="absolute w-[65%] aspect-square rounded-full left-[65%] top-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[18deg] animate-[spin_8s_linear_infinite] shadow-[0_0_35px_rgba(168,85,247,.4)] hidden lg:block">
 
                 <div
                     class="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,#ec4899,#7c3aed,#f0abfc,#4c1d95,#ec4899)]">
@@ -456,9 +457,8 @@ body {
 
             </div>
 
-
             <div
-                class="relative z-10 mr-10 -rotate-2 w-[65%] aspect-square rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,.65),0_0_35px_rgba(168,85,247,.3)]">
+                class="relative z-10 mr-0 lg:mr-10 -rotate-2 w-[50px] h-[50px] lg:w-[65%] lg:h-auto lg:aspect-square rounded-xl lg:rounded-2xl overflow-hidden shadow-[0_8px_25px_rgba(0,0,0,.5),0_0_20px_rgba(168,85,247,.25)]">
 
                 <img
                     id="cover"
@@ -472,15 +472,11 @@ body {
 
         <!-- img -->
 
-
-
-
-
         <!-- text and icon -->
 
-        <div id="info" class="title_seekbar  w-full h-[20%] flex items-center">
+        <div id="info" class="title_seekbar w-[calc(100%-50px)] h-[50px] px-2 pr-[112px] flex items-center lg:w-full lg:h-[20%] lg:px-0 lg:pr-0">
 
-            <span id="fav" class="favoritesound text-white shrink-0">
+            <span id="fav" class="favoritesound text-white shrink-0 hidden lg:block">
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -499,27 +495,29 @@ body {
 
             </span>
 
-
-            <div class="*:text-white text-center min-w-0 flex-1">
+            <div class="*:text-white text-left lg:text-center min-w-0 flex-1">
 
                 <h4
                     id="song"
-                    class="titleseecbar font-font4">
+                    class="titleseecbar font-font4 truncate text-[12px] leading-4 lg:text-base">
+
                     Midnight Echo
+
                 </h4>
 
                 <h4
                     id="artist"
-                    class="artisteecbar opacity-70">
+                    class="artisteecbar opacity-60 truncate text-[10px] leading-4 lg:text-sm">
+
                     The Velvet Lights
+
                 </h4>
 
             </div>
 
-
             <span
                 id="more"
-                class="iconseecbar *:text-white shrink-0">
+                class="iconseecbar *:text-white shrink-0 hidden lg:block">
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -538,58 +536,54 @@ body {
 
         <!-- text and icon -->
 
-
-
-
-
         <!-- progress seecbar -->
 
-        <div class="w-full h-[5%] flex items-center gap-3 px-1">
+        <div class="absolute left-0 right-0 bottom-0 h-[12px] flex items-center gap-1.5 px-1 lg:static lg:w-full lg:h-[5%] lg:gap-3 lg:px-1">
 
             <span
                 id="current"
-                class="timestart text-white/60 text-xs shrink-0">
-                00:00
-            </span>
+                class="timestart text-white/60 text-[8px] shrink-0 w-[25px] text-center lg:text-xs lg:w-auto lg:block">
 
+                00:00
+
+            </span>
 
             <div
                 id="progress"
-                class="progreesseecbar  relative overflow-hidden cursor-pointer flex-1">
+                class="progreesseecbar bg-white/10 rounded-full h-[3px] relative overflow-hidden cursor-pointer flex-1 lg:h-4">
 
                 <div
                     id="bar"
                     class="absolute left-0 top-0 h-full w-0 rounded-full bg-gradient-to-r from-violet-500 via-fuchsia-500 to-purple-400">
+
                 </div>
 
                 <div
                     id="dot"
                     class="absolute top-1/2 left-0 w-2 h-2 -translate-y-1/2 rounded-full bg-white opacity-0">
+
                 </div>
 
             </div>
 
-
             <span
                 id="duration"
-                class="timeend text-white/60 text-xs shrink-0">
-                03:42
+                class="timeend text-white/60 font-bold font-font4 text-[8px] shrink-0 w-[25px] text-center lg:text-xs lg:w-auto lg:block">
+
             </span>
 
         </div>
 
         <!-- progress seecbar -->
 
-
-
         <!-- clicks -->
 
-        <div id="controls" class="playicons w-full h-[10%] flex items-center justify-center gap-5">
+        <div id="controls" class="playicons absolute right-0 top-[8px] w-[108px] h-[50px] flex items-center justify-center gap-0 lg:static lg:w-full lg:h-[10%] lg:translate-y-0 lg:gap-5">
 
             <button
                 id="back"
                 type="button"
-                class="w-10 h-10 flex items-center justify-center text-white/60 hover:text-violet-400 transition-all cursor-pointer">
+                class="w-7 h-7 flex items-center justify-center text-white/60 hover:text-violet-400 active:scale-90 transition-all cursor-pointer">
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -599,7 +593,7 @@ body {
                     stroke-width="1.8"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="w-5 h-5">
+                    class="w-4 h-4 lg:w-5 lg:h-5">
 
                     <path d="M11 17l-5-5 5-5"/>
                     <path d="M18 17l-5-5 5-5"/>
@@ -608,18 +602,17 @@ body {
 
             </button>
 
-
             <button
                 id="play"
                 type="button"
-                class="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-purple-600 text-white shadow-[0_0_25px_rgba(168,85,247,.35)] hover:scale-105 transition-all cursor-pointer">
+                class="w-9 h-9 lg:w-14 lg:h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-purple-600 text-white shadow-[0_0_20px_rgba(168,85,247,.4)] hover:scale-105 active:scale-90 transition-all cursor-pointer">
 
                 <svg
                     id="playIcon"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
                     viewBox="0 0 24 24"
-                    class="w-6 h-6">
+                    class="w-4 h-4 lg:w-6 lg:h-6">
 
                     <path d="M8 5.5v13L19 12 8 5.5Z"/>
 
@@ -627,11 +620,10 @@ body {
 
             </button>
 
-
             <button
                 id="next"
                 type="button"
-                class="w-10 h-10 flex items-center justify-center text-white/60 hover:text-violet-400 transition-all cursor-pointer">
+                class="w-7 h-7 flex items-center justify-center text-white/60 hover:text-violet-400 active:scale-90 transition-all cursor-pointer">
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -641,7 +633,7 @@ body {
                     stroke-width="1.8"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="w-5 h-5">
+                    class="w-4 h-4 lg:w-5 lg:h-5">
 
                     <path d="M13 17l5-5-5-5"/>
                     <path d="M6 17l5-5-5-5"/>
@@ -650,11 +642,10 @@ body {
 
             </button>
 
-
             <button
                 id="rep"
                 type="button"
-                class="w-10 h-10 flex items-center justify-center text-white/60 hover:text-violet-400 transition-all cursor-pointer">
+                class="w-7 h-7 flex items-center justify-center text-white/60 hover:text-violet-400 active:scale-90 transition-all cursor-pointer">
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -664,7 +655,7 @@ body {
                     stroke-width="1.8"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="w-5 h-5">
+                    class="w-4 h-4 lg:w-5 lg:h-5">
 
                     <path d="M17 2l4 4-4 4"/>
                     <path d="M3 11V9a3 3 0 0 1 3-3h15"/>
@@ -675,14 +666,16 @@ body {
 
             </button>
 
+            <audio src="" id="audio1" class="hidden"></audio>
+
         </div>
 
         <!-- clicks -->
 
-
     </div>
 
-    </div>
+</div>
+
 
     <!-- seekbar / -->
 
@@ -775,29 +768,68 @@ body {
 
 
 
-        <div class="img h-[90%] flex items-center">
+      <div class="img h-[90%] flex items-center">
 
-            <figure
-                id="profileImage"
-                class="w-17 h-17 rounded-full overflow-hidden border border-white/10 cursor-pointer transition-all duration-300 ring-2 ring-violet-500/20 hover:ring-violet-400/50 hover:scale-105 hover:shadow-[0_0_25px_rgba(139,92,246,.25)]">
+    <div class="relative group">
 
-                <img
-                    id="profileImg"
-                    src="src/Asset/img/imgcarector.jfif"
-                    alt="Profile"
-                    class="w-full h-full object-cover"
-                >
+        <figure 
+            id="profileImage" 
+            class="relative w-17 h-17 rounded-full overflow-hidden border border-white/10 cursor-pointer transition-all duration-300 ring-2 ring-violet-500/20 hover:ring-violet-400/50 hover:scale-105 hover:shadow-[0_0_25px_rgba(139,92,246,.25)]">
 
-            </figure>
-
-            <input
-                type="file"
-                id="profileInput"
-                accept="image/*"
-                class="hidden"
+            <img 
+                id="profileImg" 
+                src="src/Asset/img/imgcarector.jfif" 
+                alt="Profile" 
+                class="w-full h-full object-cover"
             >
 
+            <!-- camera icon -->
+            <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="1.8"
+                    class="w-6 h-6 text-white">
+
+                    <path d="M4 7h3l1.5-2h7L17 7h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"/>
+                    <circle cx="12" cy="13" r="3.5"/>
+
+                </svg>
+
+            </div>
+
+        </figure>
+
+        <!-- add photo -->
+        <div class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-violet-600 border-2 border-black flex items-center justify-center pointer-events-none transition-all duration-300 group-hover:scale-110">
+
+            <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2"
+                class="w-3.5 h-3.5 text-white">
+
+                <path d="M12 5v14M5 12h14"/>
+
+            </svg>
+
         </div>
+
+    </div>
+
+    <input 
+        type="file" 
+        id="profileInput" 
+        accept="image/*" 
+        class="hidden"
+    >
+
+</div>
 
     </div>
 
@@ -828,7 +860,7 @@ body {
                         <div class="relative w-full h-[360px] sm:h-[390px] md:h-[410px] xl:h-[430px] overflow-hidden">
 
                             <img
-                                src="src/Asset/img/pexels-tnarg-2061886.jpg"
+                                src="src/Asset/img/pi1.webp"
                                 class="w-full h-full object-cover object-center"
                                 alt="Abbas Zare"
                                 loading="eager"
@@ -898,7 +930,7 @@ body {
                         <div class="relative w-full h-[360px] sm:h-[390px] md:h-[410px] xl:h-[430px] overflow-hidden">
 
                             <img
-                                src="src/Asset/img/pi2.jpg"
+                                src="src/Asset/img/pi2.webp"
                                 class="w-full h-full object-cover object-center"
                                 alt="Shadmehr"
                                 loading="lazy"
@@ -968,7 +1000,7 @@ body {
                         <div class="relative w-full h-[360px] sm:h-[390px] md:h-[410px] xl:h-[430px] overflow-hidden">
 
                             <img
-                                src="src/Asset/img/pi1.jpg"
+                                src="src/Asset/img/pexels-tnarg-2061886.webp"
                                 class="w-full h-full object-cover object-center"
                                 alt="Lexi"
                                 loading="lazy"
@@ -1575,8 +1607,172 @@ body {
 
 <!-- reels video -->
 
+<!-- seek2 -->
+
+
+<div id="homeSeek" class="homeSeek hidden  fixed bottom-17 left-0 w-full lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 h-[78px] lg:h-[150px] bg-gradient-to-r  backdrop-blur-3xl rounded-lg border border-white/10 shadow-[0_-15px_50px_rgba(139,92,246,.35)] z-[10000] flex items-center justify-center">
+
+    <div id="homePlayer" class="hidden w-[94%] lg:w-[90%] h-[70px] lg:h-[86px] grid grid-cols-[58px_minmax(0,1fr)_125px] lg:grid-cols-[75px_minmax(0,1fr)_170px] grid-rows-[55px_14px] gap-x-3 lg:gap-x-5 items-center">
+
+
+        <div class="w-[58px] h-[58px] lg:w-[75px] lg:h-[75px] rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(139,92,246,.5)]">
+
+            <img
+                id="homeCover"
+                src="src/Asset/img/pexels-oktay-koseoglu-42034955-28028969.jpg"
+                alt=""
+                class="w-full h-full object-cover">
+
+        </div>
+
+
+        <div class="min-w-0 h-[55px] lg:h-[75px] flex flex-col justify-center">
+
+            <h4
+                id="homeSong"
+                class="text-white text-sm lg:text-base font-semibold truncate leading-5">
+                Midnight Echo
+            </h4>
+
+
+            <h4
+                id="homeArtist"
+                class="text-white/50 text-xs lg:text-sm truncate leading-4">
+                The Velvet Lights
+            </h4>
+
+        </div>
+
+
+        <div class="w-[125px] lg:w-[170px] h-[55px] lg:h-[75px] flex items-center justify-end gap-1">
+
+
+            <button
+                id="homeBack"
+                type="button"
+                class="w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center text-white/60 hover:text-white active:scale-90 transition-all cursor-pointer">
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    class="w-5 h-5">
+
+                    <path d="M11 17l-5-5 5-5"/>
+                    <path d="M18 17l-5-5 5-5"/>
+
+                </svg>
+
+            </button>
+
+
+
+            <button
+                id="homePlay"
+                type="button"
+                class="w-11 h-11 lg:w-14 lg:h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-violet-500 via-purple-600 to-fuchsia-600 text-white shadow-[0_0_35px_rgba(168,85,247,.7)] hover:scale-110 active:scale-90 transition-all cursor-pointer">
+
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="white"
+                    viewBox="0 0 24 24"
+                    class="w-5 h-5 lg:w-7 lg:h-7">
+
+                    <path d="M8 5.5v13L19 12 8 5.5Z"/>
+
+                </svg>
+
+
+            </button>
+
+
+
+            <button
+                id="homeNext"
+                type="button"
+                class="w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center text-white/60 hover:text-white active:scale-90 transition-all cursor-pointer">
+
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    class="w-5 h-5">
+
+
+                    <path d="M13 17l5-5-5-5"/>
+                    <path d="M6 17l5-5-5 5"/>
+
+
+                </svg>
+
+
+            </button>
+
+
+        </div>
+
+
+
+        <div class="col-span-3 *:lg:mt-10 w-full mt-1 h-[14px] flex items-center gap-2">
+
+
+            <span
+                id="homeCurrent"
+                class="text-white/50 text-[10px] shrink-0 w-[32px] text-center">
+                00:00
+            </span>
+
+
+
+            <div id="homeProgress" class="flex-1  h-[5px] lg:h-[8px] bg-white/10 rounded-full relative overflow-hidden cursor-pointer">
+
+
+                <div
+                    id="homeBar"
+                    class="absolute left-0 top-0 h-full w-0 rounded-full bg-gradient-to-r from-violet-400 via-fuchsia-500 to-purple-400">
+
+                </div>
+
+
+            </div>
+
+
+
+            <span
+                id="homeDuration"
+                class="text-white/50 font-bold text-[10px] shrink-0 w-[32px] text-center">
+
+            </span>
+
+
+        </div>
+
+
+
+        <audio
+            id="homeAudio"
+            src=""
+            class="hidden">
+
+        </audio>
+
+
+    </div>
+
 
 </div>
+
+
+</div>
+
+
+<!-- seek2 -->
 
 <!-- / center main org result / -->
 
@@ -1813,10 +2009,9 @@ body {
 
 <!-- filter -->
 
-
 <div class="filterr hidden fixed inset-0 w-full min-h-screen bg-black/70 backdrop-blur-[12px] z-[2000] p-3 sm:p-6">
 
-    <div class="absolute w-[76%] sm:w-[85%] md:w-[65%] lg:w-[52%] xl:w-[30%] h-[60%] lg:h-[80%] sm:h-[75%] top-[30%] left-[50%] translate-x-[-50%] translate-y-[-30%] bg-[#11101a] border border-white/[0.08] rounded-[28px] shadow-[0_25px_80px_rgba(0,0,0,0.6)] overflow-hidden">
+    <div class="absolute w-[92%] sm:w-[85%] md:w-[65%] lg:w-[52%] xl:w-[30%] h-[62%] sm:h-[75%] lg:h-[80%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-[#11101a] border border-white/[0.08] rounded-[28px] shadow-[0_25px_80px_rgba(0,0,0,0.6)] overflow-hidden">
 
         <div class="w-full h-[70px] px-5 flex items-center gap-3 border-b border-white/[0.07]">
 
@@ -1842,11 +2037,15 @@ body {
             <div>
 
                 <h3 class="text-white text-sm font-font4 sm:text-base font-bold font-[font4] capitalize">
+
                     music collection
+
                 </h3>
 
                 <p class="text-white/35 font-font2 text-[10px] sm:text-xs mt-0.5">
+
                     choose your mood
+
                 </p>
 
             </div>
@@ -1862,6 +2061,8 @@ body {
 </div>
 
 <!-- filter -->
+
+
 
 
 
@@ -1895,7 +2096,145 @@ body {
 <!-- loading page / -->
 
 
+
 </section>
+
+
+
+
+<!-- footer with help ai  -->
+
+<footer class="w-full min-h-screen bg-[#080808] flex justify-center items-center py-20">
+
+
+<div
+    class="relative w-[94%] lg:w-[88%] xl:w-[82%] rounded-[28px] overflow-hidden border border-white/10 bg-[#111111] shadow-[0_30px_100px_rgba(0,0,0,.6)]">
+
+    <!-- piano glow -->
+    <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-white/[0.03] blur-[100px]"></div>
+
+    <div class="relative z-10 grid lg:grid-cols-2 items-center gap-12 lg:gap-20 p-7 md:p-12 xl:p-16">
+
+        <!-- image -->
+        <div class="flex justify-center">
+
+            <div
+                class="w-full max-w-[480px] aspect-square rounded-[24px] overflow-hidden border border-white/10 bg-black shadow-[0_20px_60px_rgba(0,0,0,.7)]">
+
+                <img 
+                    src="src/Asset/img/file_00000000f85081f4838d622c84fdc945.jpg"
+                    alt="Pooria Rezaee"
+                    class="w-full h-full object-cover"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- content -->
+        <div>
+
+            <span class="text-gray-500 text-sm tracking-[3px] uppercase">
+                POORIA DEV
+            </span>
+
+            <h3 class="text-white text-3xl font-[font4] md:text-5xl font-bold mt-3">
+                Let's Connect
+            </h3>
+
+            <p class="text-gray-400 font-[font3] text-base md:text-lg leading-8 max-w-lg mt-5">
+                Thanks for exploring my music project.
+                If you'd like to connect or collaborate,
+                you can find me here.
+            </p>
+
+
+            <div class="grid sm:grid-cols-2 gap-4 mt-8">
+
+                <!-- Telegram -->
+                <a href="https://t.me/pori_07"
+                    target="_blank"
+                    class="group rounded-xl border border-white/10 bg-[#171717] p-4 hover:bg-[#202020] hover:border-white/20 transition-all duration-300">
+
+                    <h4 class="text-white font-semibold">
+                        Telegram
+                    </h4>
+
+                    <p class="text-gray-500 text-sm mt-1 group-hover:text-gray-400">
+                        @pori_07
+                    </p>
+
+                </a>
+
+
+                <!-- Instagram -->
+                <a href="https://instagram.com/poria.frontend"
+                    target="_blank"
+                    class="group rounded-xl border border-white/10 bg-[#171717] p-4 hover:bg-[#202020] hover:border-white/20 transition-all duration-300">
+
+                    <h4 class="text-white font-semibold">
+                        Instagram
+                    </h4>
+
+                    <p class="text-gray-500 text-sm mt-1 group-hover:text-gray-400">
+                        @poria.frontend
+                    </p>
+
+                </a>
+
+
+                <!-- Github -->
+                <a href="https://github.com/poria-dev"
+                    target="_blank"
+                    class="group rounded-xl border border-white/10 bg-[#171717] p-4 hover:bg-[#202020] hover:border-white/20 transition-all duration-300">
+
+                    <h4 class="text-white font-semibold">
+                        GitHub
+                    </h4>
+
+                    <p class="text-gray-500 text-sm mt-1 group-hover:text-gray-400">
+                        poria-dev
+                    </p>
+
+                </a>
+
+
+                <!-- Linkedin -->
+                <a href="https://linkedin.com/in/pooria-rezaee"
+                    target="_blank"
+                    class="group rounded-xl border border-white/10 bg-[#171717] p-4 hover:bg-[#202020] hover:border-white/20 transition-all duration-300">
+
+                    <h4 class="text-white font-semibold">
+                        LinkedIn
+                    </h4>
+
+                    <p class="text-gray-500 text-sm mt-1 group-hover:text-gray-400">
+                        Pooria Rezaee
+                    </p>
+
+                </a>
+
+            </div>
+
+
+            <div class="mt-10 pt-6 border-t border-white/10">
+
+                <p class="text-gray-600 text-xs">
+                    © 2026 Poria Dev
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</footer>
+
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
