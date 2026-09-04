@@ -510,7 +510,7 @@ allsounds.forEach((val) => {
 
     searchResults.innerHTML += `
     
-<div data-status="${val.mood}" data-fav="${val.fav}" data-sound="${val.sound}" data-artist="${val.artist}" data-cover="${val.cover}" data-title="${val.title}" class="musicc hidden flex h-[80px] p-3 rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer items-center gap-3">
+<div data-status="${val.mood}" data-fav="${val.fav}" data-sound="${val.sound}" data-artist="${val.artist}" data-cover="${val.cover}" data-title="${val.title}" class="musicc hidden flex h-[80px] p-3 rounded-2xl bg-white/30 hover:bg-white/45 transition-all duration-300 cursor-pointer items-center gap-3">
 
     <div class="w-14 h-14 shrink-0 rounded-xl overflow-hidden">
 
@@ -857,7 +857,7 @@ trend.forEach((val) => {
 
     <div class="boxstrend w-full my-1.5 mx-2 md:mx-0">
 
-        <div class="trend_item *:font-font1 *:capitalize w-full min-h-[70px] sm:min-h-[75px] *:text-white cursor-pointer flex items-center gap-2 sm:gap-3 p-2 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-violet-400/30 transition-all duration-300">
+        <div data-sound="${val.sound}" data-time="${val.time}" data-artist="${val.artist}" data-title=" ${val.music}" data-number="${val.number}" data-cover="${val.cover}" class="trend_item *:font-font1 *:capitalize w-full min-h-[70px] sm:min-h-[75px] *:text-white cursor-pointer flex items-center gap-2 sm:gap-3 p-2 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-violet-400/30 transition-all duration-300">
 
             <div class="trend_number w-[22px] sm:w-[25px] shrink-0 text-center text-white/40 font-bold">
 
@@ -915,17 +915,43 @@ trend.forEach((val) => {
 
 
 
-            <button class="trend_download shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-base sm:text-lg text-white/50 hover:text-violet-400 hover:bg-white/10 transition">
+          <button class="trend_download shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-white/60 bg-white/5 hover:text-violet-400 hover:bg-violet-500/20 hover:scale-110 transition-all cursor-pointer">
+    
+    <a href="${val.sound}" download class="flex items-center justify-center w-full h-full">
+            <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+             stroke-width="2"
+            class="w-4 h-4 sm:w-5 sm:h-5">
 
-                ↓
+            <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/>
+            
+            </svg>
+    </a>
 
-            </button>
+</button>
 
         </div>
 
     </div>
 
 `
+
+})
+const trend_item = document.querySelectorAll(".trend_item")
+trend_item.forEach((val) => {
+
+    val.addEventListener("click", (e) => {
+
+        addalltoseek2(e)
+
+    })
+
 
 })
 
@@ -993,7 +1019,7 @@ javan.forEach((val) => {
 
     cardjavan.innerHTML += `
     
- <div class="justreleased w-full rounded-lg px-4 lg:px-1 *:w-full *:text-white capitalize">
+ <div data-sound="${val.sound}" data-artist="${val.artist}" data-title="${val.title}" data-cover="${val.cover}" class="justreleased  w-full rounded-lg px-4 lg:px-1 *:w-full *:text-white capitalize">
 
     <figure class="mb-4 cursor-pointer overflow-hidden">
         <img
@@ -1043,6 +1069,75 @@ javan.forEach((val) => {
     `
 
 })
+
+const cardjavans = document.querySelectorAll(".justreleased")
+
+cardjavans.forEach((val) => {
+
+    val.addEventListener("click", (e) => {
+
+        addalltoseek2(e)
+
+    })
+
+})
+
+
+function addalltoseek2(s) {
+
+
+    let x = s.currentTarget
+
+    let seda = x.dataset.sound
+    let title = x.dataset.title
+    let artist = x.dataset.artist
+    let cover = x.dataset.cover
+
+
+    homeCover.src = cover
+    homeAudio.src = seda
+    homeArtist.textContent = artist
+    homeSong.textContent = title
+
+
+    audio1.pause()
+
+
+    play.innerHTML = `
+        <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="white"
+        class="w-5 h-5">
+
+        <path d="M8 5.5v13L19 12 8 5.5Z"/>
+
+        </svg>
+    `
+
+
+    homeAudio.play()
+
+
+    homeBar.style.width = "0%"
+
+
+    homeSeek.classList.remove("hidden")
+    homeSeek.classList.add("flex")
+
+
+    homePlay.innerHTML = `
+        <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="w-5 h-5 text-white">
+
+        <path d="M7 5.5a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Zm7 0a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Z"/>
+
+        </svg>
+    `
+}
 
 
 // create javan released  / / / / 
@@ -1533,7 +1628,7 @@ setTimeout(() => {
     bodyy.classList.remove("overflow-hidden")
     loadd.classList.add("hidden")
 
-}, 5000)
+}, 3000)
 
 // loading /  / /  /  /  
 
@@ -2303,6 +2398,12 @@ homeRep.addEventListener("click", () => {
 })
 
 
-// seek2 /  /  / /  /  /  /  /  /  //  in home  / /  /  / /  / 
+// seek2 /  /  / /  /  /  /  /  /  //  in home  / /  /  / /  /
+
+
+
+
+
+// 
 
 
