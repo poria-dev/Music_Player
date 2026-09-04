@@ -1236,6 +1236,7 @@ menuphone.forEach((val) => {
             homeSeek.classList.add("hidden")
 
             homeAudio.pause()
+            homeSeek.classList.add("hidden")
 
             homePlay.innerHTML = `
 
