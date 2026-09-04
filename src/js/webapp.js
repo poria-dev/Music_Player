@@ -1533,7 +1533,7 @@ setTimeout(() => {
     bodyy.classList.remove("overflow-hidden")
     loadd.classList.add("hidden")
 
-}, 10000)
+}, 5000)
 
 // loading /  / /  /  /  
 
