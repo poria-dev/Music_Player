@@ -3,8 +3,11 @@ const profileImg = document.querySelector("#profileImg")
 const icon = document.querySelector(".icon")
 const playnotif = new Audio("src/Asset/music/notif/Message-notification.mp3")
 const profileInput = document.querySelector("#profileInput")
-
+const favrite = document.querySelector(".backfav")
 const mode = document.querySelector(".cardmode")
+const fav = document.getElementById("fav")
+const favorit = document.getElementById("favorit")
+let arrw = []
 
 // local    /  / /  /  /
 
@@ -15,6 +18,24 @@ if (savedProfile) {
     profileImg.src = savedProfile
 
 }
+
+
+
+// local 2 create el fav
+
+let backel = JSON.parse(localStorage.getItem("uni"))
+
+if (backel) {
+
+    arrw = backel
+    createnewfav()
+
+}
+
+// local 2 create el fav
+
+
+
 
 
 // icon sound /
@@ -1160,7 +1181,10 @@ menuItem.forEach((val) => {
 
         let x = val.offsetTop
 
+
+
         menuActive.style.top = `${x}px`
+
 
 
         if (val.getAttribute("data-ser") == "on") {
@@ -1174,6 +1198,7 @@ menuItem.forEach((val) => {
 
             homeAudio.pause()
             homeSeek.classList.add("hidden")
+
 
             homePlay.innerHTML = `
 
@@ -1189,15 +1214,19 @@ menuItem.forEach((val) => {
 
     `
 
-
-
-
-
-
         } else {
             searchBox.classList.remove("flex")
             searchBox.classList.add("hidden")
             bodyy.classList.remove("overflow-hidden")
+
+
+
+        }
+
+        if (val.getAttribute("data-love") == "on") {
+
+            favagain()
+            menuActive.style.top = "8px"
 
 
         }
@@ -1207,6 +1236,12 @@ menuItem.forEach((val) => {
 
 })
 
+
+function favagain(s) {
+    favrite.classList.add("flex")
+    favrite.classList.remove("hidden")
+    bodyy.classList.add("overflow-hidden")
+}
 
 
 
@@ -1353,9 +1388,17 @@ menuphone.forEach((val) => {
             searchBox.classList.add("hidden")
             bodyy.classList.remove("overflow-hidden")
 
-            homeSeek.classList.add("flex")
-            homeSeek.classList.remove("hidden")
+        }
 
+        if (val.getAttribute("id") == "love") {
+
+            favagain()
+            menuActive.style.top = "8px"
+
+        } else {
+            favrite.classList.remove("flex")
+            favrite.classList.add("hidden")
+            bodyy.classList.remove("overflow-hidden")
         }
 
     })
@@ -1731,7 +1774,7 @@ btn_play_music.forEach((val) => {
         </svg>
 
         `
-
+        checkfav()
         audio1.play()
 
     })
@@ -1849,6 +1892,7 @@ next.addEventListener("click", () => {
 back.addEventListener("click", () => {
 
     index--
+    checkfav()
 
     if (index < 0) {
 
@@ -1893,6 +1937,7 @@ back.addEventListener("click", () => {
 function music_next_playorafter(params) {
 
     index++
+    checkfav()
 
     if (index >= allsounds.length) {
 
@@ -2213,7 +2258,7 @@ homeNext.addEventListener("click", () => {
 homeBack.addEventListener("click", () => {
 
     homeIndex--
-
+    checkfav()
 
     if (homeIndex < 0) {
 
@@ -2273,6 +2318,7 @@ homeBack.addEventListener("click", () => {
 function home_music_next_playorafter() {
 
     homeIndex++
+    checkfav()
 
 
     if (homeIndex >= allsounds.length) {
@@ -2399,11 +2445,213 @@ homeRep.addEventListener("click", () => {
 
 
 // seek2 /  /  / /  /  /  /  /  /  //  in home  / /  /  / /  /
-
-
-
-
-
 // 
+
+
+
+
+
+// fav
+
+
+let savee = JSON.parse(localStorage.getItem("favstatus")) || {}
+
+function checkfav() {
+
+    let song = allsounds[index].sound
+
+    if (savee[song] === true) {
+
+        allsounds[index].fav = true
+
+        fav.setAttribute("data-fav", "true")
+
+        fav.classList.remove("text-white")
+        fav.classList.add("text-red-500")
+
+    } else {
+
+        allsounds[index].fav = false
+
+        fav.setAttribute("data-fav", "false")
+
+        fav.classList.remove("text-red-500")
+        fav.classList.add("text-white")
+
+    }
+
+}
+
+checkfav()
+
+fav.addEventListener("click", () => {
+
+    let song = allsounds[index].sound
+
+    allsounds[index].fav = !allsounds[index].fav
+
+    savee[song] = allsounds[index].fav
+
+    fav.setAttribute("data-fav", allsounds[index].fav)
+
+    if (allsounds[index].fav === true) {
+
+        fav.classList.remove("text-white")
+        fav.classList.add("text-red-500")
+
+        if (!arrw.some((val) => val.sound === song)) {
+            arrw.push(allsounds[index])
+        }
+
+    } else {
+
+        fav.classList.remove("text-red-500")
+        fav.classList.add("text-white")
+
+        arrw = arrw.filter((val) => {
+            return val.sound != song
+        })
+
+    }
+
+    localStorage.setItem("favstatus", JSON.stringify(savee))
+    localStorage.setItem("uni", JSON.stringify(arrw))
+
+    createnewfav()
+
+})
+
+
+function createnewfav() {
+
+    favlist.innerHTML = ""
+
+    arrw.forEach((val) => {
+
+        let div = document.createElement("div")
+
+        div.innerHTML = `
+
+        <div data-status="${val.mood}" data-fav="${val.fav}" data-sound="${val.sound}" data-artist="${val.artist}" data-cover="${val.cover}" data-title="${val.title}" class="musicc2 w-full flex h-[80px] p-3 *:capitalize *:font-[font2] rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] hover:border-purple-500/30 transition-all duration-300 cursor-pointer items-center gap-3 text-white">
+
+            <div class="w-14 h-14 shrink-0 rounded-xl overflow-hidden">
+
+                <img
+                    src="${val.cover}"
+                    alt=""
+                    class="w-full h-full object-cover">
+
+            </div>
+
+            <div class="min-w-0 flex-1">
+
+                <h4 class="text-sm font-semibold truncate">
+                    ${val.title}
+                </h4>
+
+                <p class="text-white/40 text-xs mt-1 truncate">
+                    ${val.artist}
+                </p>
+
+            </div>
+
+            <button class="w-9 h-9 shrink-0 rounded-full bg-purple-500/20 hover:bg-purple-500 flex items-center justify-center transition-all duration-300">
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    class="w-4 h-4 text-white">
+
+                    <path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.12-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14Z"/>
+
+                </svg>
+
+            </button>
+
+        </div>
+
+        `
+
+        favlist.appendChild(div)
+
+        div.querySelector(".musicc2").addEventListener("click", () => {
+
+            let sound = div.querySelector(".musicc2").dataset.sound
+            let artist = div.querySelector(".musicc2").dataset.artist
+            let cover = div.querySelector(".musicc2").dataset.cover
+            let title = div.querySelector(".musicc2").dataset.title
+
+            homeSeek.classList.remove("hidden")
+            homeSeek.classList.add("flex")
+
+            homePlayer.classList.remove("hidden")
+            homePlayer.classList.add("grid")
+
+            homeCover.src = cover
+            homeSong.textContent = title
+            homeArtist.textContent = artist
+
+            homeAudio.src = sound
+
+            homeAudio.play()
+
+            audio1.pause()
+
+            homePlay.innerHTML = `
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-5 h-5 text-white">
+
+                <path d="M7 5.5a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Zm7 0a1.5 1.5 0 0 1 3 0v13a1.5 1.5 0 0 1-3 0v-13Z"/>
+
+            </svg>
+
+            `
+
+            play.innerHTML = `
+
+            <svg
+                id="playIcon"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                class="w-6 h-6">
+
+                <path d="M8 5.5v13L19 12 8 5.5Z"/>
+
+            </svg>
+
+            `
+
+        })
+
+    })
+
+}
+
+let backfav = document.querySelector(".backfav")
+let closefav = document.querySelector("#closefav")
+
+closefav.addEventListener("click", () => {
+
+    backfav.classList.add("hidden")
+    backfav.classList.remove("flex")
+    bodyy.classList.remove("overflow-hidden")
+
+})
+
+function openfav() {
+
+    backfav.classList.remove("hidden")
+
+    createnewfav()
+
+}
+
+
 
 
