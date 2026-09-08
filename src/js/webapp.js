@@ -591,7 +591,7 @@ const allsounds = [
 
         sound: "https://dl.musicdel.ir/Music/1405/03/Tahas-Fereshte%20-musicdel.ir.mp3",
         cover: "src/Asset/img/taha4.jpg",
-        title: "sagkhord",
+        title: "freshteh",
         artist: "tahas",
         fav: false,
         mood: "Pop"
@@ -602,7 +602,7 @@ const allsounds = [
 
         sound: "https://dl.musicdel.ir/Music/1405/03/Tahas-Del%20Kandam%20Azat%20-musicdel.ir.mp3",
         cover: "src/Asset/img/taha5.jpg",
-        title: "sagkhord",
+        title: "del kandam",
         artist: "tahas",
         fav: false,
         mood: "Sport"
