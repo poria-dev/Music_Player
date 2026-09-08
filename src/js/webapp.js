@@ -522,6 +522,125 @@ const allsounds = [
 
     },
 
+    {
+
+        sound: "https://dl.musicdel.ir/Music/1405/05/Kooriboom%20Shayan%20Yo%20Ali%20Pooke-Chi%20Shode-musicdel.ir.mp3",
+        cover: "src/Asset/img/shayan1.jpg",
+        title: "chishode",
+        artist: "shayan yo",
+        fav: false,
+        mood: "Rap"
+
+    },
+
+    {
+
+        sound: "https://dl.musicdel.ir/Music/1405/05/Shayan%20Yo-Bezar%20Boro-musicdel.ir.mp3",
+        cover: "src/Asset/img/shayan2.jpg",
+        title: "bezar boro",
+        artist: "shayan yo",
+        fav: false,
+        mood: "Rap"
+
+    },
+
+    {
+
+        sound: "https://javanmusic.musitraf.com/music/2026/09/03/pid_12308/deleshisheiremix-320-(javan-music.ir).mp3",
+        cover: "src/Asset/img/DJ Mety-BMW-musicdel.ir-768x768.jpg",
+        title: "remixrap",
+        artist: "khojaste",
+        fav: false,
+        mood: "Sad"
+
+    },
+    {
+
+        sound: "https://dl.musicdel.ir/Music/1405/05/Tahas%20Hasan%20Baba-Padzahr-musicdel.ir.mp3https://javanmusic.musitraf.com/music/2026/09/03/pid_12308/deleshisheiremix-320-(javan-music.ir).mp3",
+        cover: "src/Asset/img/taha1.jpg",
+        title: "padzahr",
+        artist: "tahas",
+        fav: false,
+        mood: "Sport"
+
+    },
+
+    {
+
+        sound: "https://dl.musicdel.ir/Music/1405/05/Tahas%20Hasan%20Baba-Nostalgic%20Love-musicdel.ir.mp3",
+        cover: "src/Asset/img/taha2.jpg",
+        title: "love",
+        artist: "tahas",
+        fav: false,
+        mood: "Sport"
+
+    },
+
+    {
+
+        sound: "https://dl.musicdel.ir/Music/1405/04/Tahas%20Hasan%20Baba%20Youni-Sag%20Khord%20-musicdel.ir.mp3",
+        cover: "src/Asset/img/taha3.jpg",
+        title: "sagkhord",
+        artist: "tahas",
+        fav: false,
+        mood: "Today"
+
+    },
+
+    {
+
+        sound: "https://dl.musicdel.ir/Music/1405/03/Tahas-Fereshte%20-musicdel.ir.mp3",
+        cover: "src/Asset/img/taha4.jpg",
+        title: "sagkhord",
+        artist: "tahas",
+        fav: false,
+        mood: "Pop"
+
+    },
+
+    {
+
+        sound: "https://dl.musicdel.ir/Music/1405/03/Tahas-Del%20Kandam%20Azat%20-musicdel.ir.mp3",
+        cover: "src/Asset/img/taha5.jpg",
+        title: "sagkhord",
+        artist: "tahas",
+        fav: false,
+        mood: "Sport"
+
+    },
+    {
+
+        sound: "https://dl.gisomusic.com/Music/1402/12/13/Amir%20Tataloo%20-%20Oon%20Dige%20Nemitoone.mp3",
+        cover: "src/Asset/img/tatal1.webp",
+        title: "ondige_nemitone",
+        artist: "tataloo",
+        fav: false,
+        mood: "Rap"
+
+    },
+
+    {
+
+        sound: "https://dl.mokhtalefmusic.com/music/1397/09/13/Hanoozam.mp3",
+        cover: "src/Asset/img/tatal3.webp",
+        title: "hanoozam",
+        artist: "tataloo",
+        fav: false,
+        mood: "Today"
+
+    },
+
+    {
+
+        sound: "https://dl.mokhtalefmusic.com/music/1400/02/14/Amir%20Tataloo%20-%20Navazesh%20%5B320%5D.mp3",
+        cover: "src/Asset/img/tatal2.webp",
+        title: "navazesh1",
+        artist: "tataloo",
+        fav: false,
+        mood: "Today"
+
+    },
+
 ]
 
 
